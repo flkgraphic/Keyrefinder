@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System – KeyRefinder® Business Clients</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700&display=swap" rel="stylesheet" />
+  <script src="translations.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --red: #E31D1A;
+      --dark: #2d2d2d;
+      --gray-bg: #f4f4f4;
+      --text: #333;
+      --border: #ddd;
+    }
+
+    body { font-family: 'Inter', Arial, sans-serif; color: var(--text); font-weight: 300; overflow-x: hidden; background: #fff; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── HEADER ── */
+    header {
+      display: flex; align-items: stretch; justify-content: space-between;
+      padding: 0 48px; background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 200;
+    }
+    .logo { display: flex; align-items: center; flex-shrink: 0; padding: 20px 0 8px; }
+    .logo img { height: 52px; width: auto; display: block; }
+    nav { display: flex; align-items: stretch; gap: 28px; }
+    nav a {
+      display: flex; align-items: center;
+      font-size: 13pt; font-weight: 300; letter-spacing: 0.08em; color: #555;
+      text-transform: uppercase; transition: color .2s; white-space: nowrap;
+      position: relative;
+    }
+    nav a:hover { color: var(--red); }
+    nav a.active { color: var(--red); font-weight: 700; }
+    nav a.active::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2.5px; background: var(--red);
+    }
+    .btn-offerte {
+      align-self: center;
+      background: var(--red); color: #fff; font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase; padding: 11px 22px;
+      border-radius: 12px; border: none; cursor: pointer; transition: background .2s;
+      white-space: nowrap; text-decoration: none; display: inline-block;
+    }
+    .btn-offerte:hover { background: #b71c1c; }
+
+    /* Language dropdown */
+    .lang-dropdown { position: relative; align-self: center; margin-left: -18px; }
+    .lang-toggle { display: flex; align-items: center; gap: 5px; background: none; border: 1px solid #ddd; border-radius: 12px; padding: 11px 14px; cursor: pointer; font-family: 'Inter', Arial, sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; color: #555; transition: border-color .2s, color .2s; }
+    .lang-toggle:hover { border-color: var(--red); color: var(--red); }
+    .lang-arrow { font-size: 0.6rem; color: #aaa; transition: transform .2s; }
+    .lang-dropdown.open .lang-arrow { transform: rotate(180deg); }
+    .lang-menu { display: none; position: absolute; top: calc(100% + 8px); right: 0; background: #fff; border: 1px solid #e4e4e4; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); overflow: hidden; min-width: 64px; z-index: 300; }
+    .lang-dropdown.open .lang-menu { display: block; }
+    .lang-menu button { display: block; width: 100%; padding: 9px 16px; text-align: left; background: none; border: none; cursor: pointer; font-family: 'Inter', Arial, sans-serif; font-size: 0.75rem; font-weight: 300; letter-spacing: 0.06em; color: #555; transition: color .15s, background .15s; }
+    .lang-menu button:hover { background: #f7f7f7; color: var(--red); }
+    .lang-menu button.active { font-weight: 700; color: var(--red); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; align-self: center; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #333; border-radius: 2px; transition: all .3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .mobile-nav { display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0; background: #fff; z-index: 190; flex-direction: column; padding: 32px 24px; gap: 0; overflow-y: auto; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 13pt; font-weight: 300; letter-spacing: 0.08em; color: #555; text-transform: uppercase; padding: 14px 0; }
+    .mobile-nav a:hover { color: var(--red); }
+    .mobile-nav .btn-offerte { margin-top: 28px; text-align: center; display: block; padding: 14px 22px; background: var(--red); color: #fff; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; border-radius: 12px; }
+    .mobile-nav .btn-offerte:hover { background: #b71c1c; color: #fff; }
+
+    /* ── SYSTEM SECTION ── */
+    #system-section {
+      padding: 80px 48px 100px;
+      background: var(--gray-bg);
+    }
+
+    .system-title {
+      text-align: center;
+      font-size: 1.65rem; font-weight: 100; letter-spacing: 0.01em; line-height: 1.45;
+      color: var(--text); max-width: 680px; margin: 0 auto 56px;
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .system-title.visible { opacity: 1; transform: translateY(0); }
+
+    /*
+     * SUBGRID LAYOUT
+     * Parent defines 5 rows. Each .way-card spans all 5 rows and uses subgrid.
+     * This guarantees pixel-perfect alignment of every row across both cards.
+     *
+     *  Row 1 → card-header
+     *  Row 2 → image 1
+     *  Row 3 → label 1
+     *  Row 4 → image 2
+     *  Row 5 → label 2
+     */
+    .ways-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto auto auto;
+      column-gap: 28px;
+      row-gap: 0;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .way-card {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 5;
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid #e4e4e4;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.08);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(48px);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .way-card.visible { opacity: 1; transform: translateY(0); }
+
+    /* Row 1 – Card header */
+    .card-header {
+      display: flex; align-items: center; gap: 16px;
+      padding: 24px 24px 22px;
+    }
+    .badge {
+      width: 46px; height: 46px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 700; color: #fff; flex-shrink: 0;
+    }
+    .badge-red  { background: var(--red); }
+    .badge-dark { background: var(--dark); }
+    .card-title { font-size: 1.25rem; font-weight: 700; color: var(--text); }
+
+    /* Rows 2 & 4 – Images: rounded box with padding inside card */
+    .step-img {
+      margin: 0 18px;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .step-img img {
+      width: 100%; height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .step-img:hover img { transform: scale(1.03); }
+
+    /* Rows 3 & 5 – Coloured rounded label box with padding inside card */
+    .step-label {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 18px;
+      margin: 12px 18px 20px;
+      border-radius: 12px;
+    }
+    .step-label-red  { background: var(--red); }
+    .step-label-dark { background: var(--dark); }
+
+    .step-num {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 700; flex-shrink: 0;
+    }
+    .step-label-red  .step-num { background: #fff; color: var(--red); }
+    .step-label-dark .step-num { background: #fff; color: var(--dark); }
+
+    .step-text {
+      font-size: 0.92rem; font-weight: 300; line-height: 1.65; color: #fff;
+    }
+    .step-text strong { font-weight: 700; }
+
+    /* Stagger animations within visible card */
+    .way-card.visible .card-header { animation: fadeUp 0.5s ease 0.1s both; }
+    .way-card.visible .step-img:first-of-type  { animation: fadeUp 0.5s ease 0.2s both; }
+    .way-card.visible .step-label:first-of-type { animation: fadeUp 0.5s ease 0.3s both; }
+    .way-card.visible .step-img:last-of-type   { animation: fadeUp 0.5s ease 0.4s both; }
+    .way-card.visible .step-label:last-of-type  { animation: fadeUp 0.5s ease 0.5s both; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── VIDEO SECTION ── */
+    #video-section {
+      padding: 80px 48px 100px;
+      background: #fff;
+    }
+    .video-title {
+      text-align: center;
+      font-size: 1.5rem; font-weight: 100; letter-spacing: 0.04em;
+      color: var(--text); margin-bottom: 40px;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .video-title.visible { opacity: 1; transform: translateY(0); }
+
+    .video-wrap {
+      max-width: 740px; margin: 0 auto;
+      border-radius: 18px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      aspect-ratio: 16 / 9;
+      opacity: 0; transform: translateY(32px) scale(0.98);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .video-wrap.visible { opacity: 1; transform: translateY(0) scale(1); }
+    .video-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+
+    /* ── FOOTER ── */
+    footer { background: #fff; border-top: 1px solid #eee; padding: 36px 48px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; max-width: 1200px; margin: 0 auto; }
+    .footer-nav { display: flex; flex-wrap: wrap; }
+    .footer-nav a { font-size: 0.8rem; color: #555; font-weight: 300; padding: 4px 14px; border-right: 1px solid #ccc; }
+    .footer-nav a:last-child { border-right: none; }
+    .footer-copy { font-size: 0.75rem; color: #aaa; font-weight: 300; }
+    .footer-logo img { height: 36px; width: auto; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      header { padding: 0 24px; }
+      nav { display: none; }
+      .hamburger { display: flex; }
+      #system-section { padding: 60px 20px 80px; }
+      .ways-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+      }
+      .way-card {
+        grid-row: span 1;
+        display: block;
+      }
+      .system-title { font-size: 1.2rem; margin-bottom: 36px; }
+      #video-section { padding: 60px 20px 80px; }
+      footer { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">
+    <img src="Images/logo_keyrefinder.svg fill.png" alt="KeyRefinder® Business Clients" />
+  </a>
+  <nav id="desktop-nav">
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="index.html#produkte" data-i18n="nav_produkte">Produkte</a>
+    <a href="index.html#offerte" data-i18n="nav_offerte">Offerte</a>
+    <a href="index.html#referenzen" data-i18n="nav_referenzen">Referenzen</a>
+    <a href="system.html" class="active" data-i18n="nav_system">System</a>
+    <a href="ueber-uns.html" data-i18n="nav_ueber_uns">Über uns</a>
+    <a href="https://www.lost.ch/" target="_blank" rel="noopener" data-i18n="nav_privatkunden">Privatkunden</a>
+    <a href="offerte.html" class="btn-offerte" data-i18n="nav_btn_offerte">Offerte anfragen</a>
+    <div class="lang-dropdown" id="lang-dropdown">
+      <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">
+        <span id="lang-current">DE</span>
+        <span class="lang-arrow">&#9662;</span>
+      </button>
+      <div class="lang-menu" id="lang-menu">
+        <button onclick="setLang('DE')">DE</button>
+        <button onclick="setLang('IT')">IT</button>
+        <button onclick="setLang('FR')">FR</button>
+        <button onclick="setLang('EN')">EN</button>
+      </div>
+    </div>
+  </nav>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html" onclick="closeMenu()" data-i18n="nav_home">Home</a>
+  <a href="index.html#produkte" onclick="closeMenu()" data-i18n="nav_produkte">Produkte</a>
+  <a href="index.html#offerte" onclick="closeMenu()" data-i18n="nav_offerte">Offerte</a>
+  <a href="index.html#referenzen" onclick="closeMenu()" data-i18n="nav_referenzen">Referenzen</a>
+  <a href="system.html" onclick="closeMenu()" data-i18n="nav_system">System</a>
+  <a href="ueber-uns.html" onclick="closeMenu()" data-i18n="nav_ueber_uns">Über uns</a>
+  <a href="https://www.lost.ch/" target="_blank" rel="noopener" onclick="closeMenu()" data-i18n="nav_privatkunden">Privatkunden</a>
+  <a href="offerte.html" class="btn-offerte" onclick="closeMenu()" data-i18n="nav_btn_offerte">Offerte anfragen</a>
+</div>
+
+<!-- SYSTEM SECTION -->
+<section id="system-section">
+
+  <h2 class="system-title anim" data-i18n="system_title">
+    2 Wege wie ein Schlüssel mit KeyRefinder®<br>zu seinem Besitzer zurückfindet:
+  </h2>
+
+  <div class="ways-grid">
+
+    <!-- A: POSTWEG -->
+    <div class="way-card anim" style="transition-delay:0.1s">
+      <div class="card-header">
+        <div class="badge badge-red">A</div>
+        <div class="card-title" data-i18n="system_way_a">Postweg</div>
+      </div>
+      <div class="step-img">
+        <img src="Images/Image (Schlüssel in Briefkasten werfen).png" alt="Schlüssel in Briefkasten werfen" />
+      </div>
+      <div class="step-label step-label-red">
+        <div class="step-num">1</div>
+        <div class="step-text" data-i18n="system_a1">Finder wirft den Schlüssel unverpackt in den nächsten <strong>Briefkasten</strong>.</div>
+      </div>
+      <div class="step-img">
+        <img src="Images/Image (Schlüssel zurücksenden).png" alt="Schlüssel zurücksenden" />
+      </div>
+      <div class="step-label step-label-red">
+        <div class="step-num">2</div>
+        <div class="step-text" data-i18n="system_a2">lost.ch identifiziert den registrierten Besitzer und <strong>schickt</strong> seinen Schlüssel in einem <strong>neutralen Umschlag</strong> zurück.</div>
+      </div>
+    </div>
+
+    <!-- B: DIREKTKONTAKT -->
+    <div class="way-card anim" style="transition-delay:0.22s">
+      <div class="card-header">
+        <div class="badge badge-dark">B</div>
+        <div class="card-title" data-i18n="system_way_b">Direktkontakt</div>
+      </div>
+      <div class="step-img">
+        <img src="Images/Image (Fund über Webseite melden).png" alt="Fund über Webseite melden" />
+      </div>
+      <div class="step-label step-label-dark">
+        <div class="step-num">1</div>
+        <div class="step-text" data-i18n="system_b1">Finder meldet den Fund direkt über die <strong>Webseite</strong>.</div>
+      </div>
+      <div class="step-img">
+        <img src="Images/Image (Übergabe vereinbaren).png" alt="Übergabe vereinbaren" />
+      </div>
+      <div class="step-label step-label-dark">
+        <div class="step-num">2</div>
+        <div class="step-text" data-i18n="system_b2">Besitzer tritt in Kontakt mit Finder und vereinbart die <strong>Übergabe</strong>.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section id="video-section">
+  <div class="video-title anim" data-i18n="video_title">So funktioniert KeyRefinder®</div>
+  <div class="video-wrap anim" style="transition-delay:0.15s">
+    <iframe
+      src="https://www.youtube.com/embed/csKzFJbl1Dc?rel=0&modestbranding=1"
+      title="So funktioniert KeyRefinder®"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="Images/logo_keyrefinder.svg fill.png" alt="KeyRefinder® Business Clients" />
+    </div>
+    <nav class="footer-nav">
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="index.html#produkte" data-i18n="footer_produkte">Produkte</a>
+      <a href="index.html#offerte" data-i18n="footer_offerte">Offerte</a>
+      <a href="index.html#referenzen" data-i18n="footer_referenzen">Referenzen</a>
+      <a href="system.html" data-i18n="footer_system">System</a>
+      <a href="ueber-uns.html" data-i18n="footer_ueber_uns">Über uns</a>
+      <a href="offerte.html" data-i18n="footer_anfragen">Offerte anfragen</a>
+    </nav>
+    <div class="footer-copy">© 2025 The Key Company GmbH</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobile-nav').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobile-nav').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+
+  let currentLang = 'DE';
+  function toggleLang() { document.getElementById('lang-dropdown').classList.toggle('open'); }
+  function setLang(lang) {
+    currentLang = lang;
+    document.getElementById('lang-current').textContent = lang;
+    document.querySelectorAll('.lang-menu button').forEach(b => { b.classList.toggle('active', b.textContent === lang); });
+    document.getElementById('lang-dropdown').classList.remove('open');
+    localStorage.setItem('krf_lang', lang);
+    if (window.applyTranslations) applyTranslations(lang);
+  }
+  // Apply saved language on load
+  const savedLang = localStorage.getItem('krf_lang') || 'DE';
+  setLang(savedLang);
+  document.addEventListener('click', e => { if (!document.getElementById('lang-dropdown').contains(e.target)) { document.getElementById('lang-dropdown').classList.remove('open'); } });
+
+  /* Scroll animations */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.anim').forEach(el => observer.observe(el));
+
+</script>
+</body>
+</html>

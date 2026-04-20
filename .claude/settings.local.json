@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.keyrefinder.ch)",
+      "Bash(curl -s \"https://www.keyrefinder.ch/de/Referenzen.4.html\")",
+      "Bash(grep -v ^[[:space:]]*$)",
+      "Bash(ls /Users/florianklein/Documents/Cloude/Keyrefinder/Images/Header* /Users/florianklein/Documents/Cloude/Keyrefinder/Images/Heas*)"
+    ]
+  }
+}

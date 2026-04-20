@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Über uns – KeyRefinder® Business Clients</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100,0,0" rel="stylesheet" />
+  <script src="translations.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --red: #E31D1A;
+      --dark: #2d2d2d;
+      --gray-bg: #f4f4f4;
+      --text: #333;
+      --border: #ddd;
+    }
+
+    body { font-family: 'Inter', Arial, sans-serif; color: var(--text); font-weight: 300; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── HEADER ── */
+    header {
+      display: flex; align-items: stretch; justify-content: space-between;
+      padding: 0 48px; background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 200;
+    }
+    .logo { display: flex; align-items: center; flex-shrink: 0; padding: 20px 0 8px; }
+    .logo img { height: 52px; width: auto; display: block; }
+    nav { display: flex; align-items: stretch; gap: 28px; }
+    nav a {
+      display: flex; align-items: center;
+      font-size: 13pt; font-weight: 300; letter-spacing: 0.08em; color: #555;
+      text-transform: uppercase; transition: color .2s; white-space: nowrap;
+      position: relative;
+    }
+    nav a:hover { color: var(--red); }
+    nav a.active { color: var(--red); font-weight: 700; }
+    nav a.active::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2.5px; background: var(--red);
+    }
+    .btn-offerte {
+      align-self: center;
+      background: var(--red); color: #fff; font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase; padding: 11px 22px;
+      border-radius: 12px; border: none; cursor: pointer; transition: background .2s;
+      white-space: nowrap; text-decoration: none; display: inline-block;
+    }
+    .btn-offerte:hover { background: #b71c1c; }
+
+    /* Language dropdown */
+    .lang-dropdown { position: relative; align-self: center; margin-left: -18px; }
+    .lang-toggle { display: flex; align-items: center; gap: 5px; background: none; border: 1px solid #ddd; border-radius: 12px; padding: 11px 14px; cursor: pointer; font-family: 'Inter', Arial, sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; color: #555; transition: border-color .2s, color .2s; }
+    .lang-toggle:hover { border-color: var(--red); color: var(--red); }
+    .lang-arrow { font-size: 0.6rem; color: #aaa; transition: transform .2s; }
+    .lang-dropdown.open .lang-arrow { transform: rotate(180deg); }
+    .lang-menu { display: none; position: absolute; top: calc(100% + 8px); right: 0; background: #fff; border: 1px solid #e4e4e4; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); overflow: hidden; min-width: 64px; z-index: 300; }
+    .lang-dropdown.open .lang-menu { display: block; }
+    .lang-menu button { display: block; width: 100%; padding: 9px 16px; text-align: left; background: none; border: none; cursor: pointer; font-family: 'Inter', Arial, sans-serif; font-size: 0.75rem; font-weight: 300; letter-spacing: 0.06em; color: #555; transition: color .15s, background .15s; }
+    .lang-menu button:hover { background: #f7f7f7; color: var(--red); }
+    .lang-menu button.active { font-weight: 700; color: var(--red); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; align-self: center; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #333; border-radius: 2px; transition: all .3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .mobile-nav { display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0; background: #fff; z-index: 190; flex-direction: column; padding: 32px 24px; gap: 0; overflow-y: auto; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 13pt; font-weight: 300; letter-spacing: 0.08em; color: #555; text-transform: uppercase; padding: 14px 0; }
+    .mobile-nav a:hover { color: var(--red); }
+    .mobile-nav .btn-offerte { margin-top: 28px; text-align: center; display: block; padding: 14px 22px; background: var(--red); color: #fff; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; border-radius: 12px; }
+    .mobile-nav .btn-offerte:hover { background: #b71c1c; color: #fff; }
+
+    /* ── SECTION SHARED ── */
+    .section-inner { max-width: 1200px; margin: 0 auto; width: 100%; }
+    .section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 16px; }
+    .section-title-lg { font-size: 2rem; font-weight: 100; letter-spacing: 0.03em; margin-bottom: 48px; color: var(--text); }
+
+    /* ── TIMELINE ── */
+    #timeline-section {
+      padding: 100px 48px;
+      background: #fff;
+    }
+    .timeline-wrap { position: relative; }
+
+    /* Vertical line */
+    .timeline-wrap::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--border) 8%, var(--border) 92%, transparent);
+      transform: translateX(-50%);
+    }
+
+    .tl-item {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      gap: 0;
+      margin-bottom: 0;
+      position: relative;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .tl-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Alternate left/right */
+    .tl-item:nth-child(odd) .tl-content { grid-column: 1; text-align: right; padding: 40px 52px 40px 0; }
+    .tl-item:nth-child(odd) .tl-empty { grid-column: 3; }
+    .tl-item:nth-child(even) .tl-content { grid-column: 3; text-align: left; padding: 40px 0 40px 52px; }
+    .tl-item:nth-child(even) .tl-empty { grid-column: 1; }
+    .tl-center { grid-column: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; }
+
+    .tl-dot {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #fff; border: 2px solid var(--border);
+      transition: border-color .4s, background .4s;
+      flex-shrink: 0;
+    }
+    .tl-item.visible .tl-dot { border-color: var(--red); background: var(--red); }
+
+    .tl-year {
+      font-size: 2.2rem; font-weight: 100; color: var(--red);
+      letter-spacing: 0.02em; line-height: 1;
+      margin-bottom: 10px;
+    }
+    .tl-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #999; margin-bottom: 8px; }
+    .tl-text { font-size: 0.95rem; font-weight: 300; line-height: 1.75; color: #555; }
+
+    /* Milestone highlight */
+    .tl-item.milestone .tl-year { font-weight: 700; font-size: 2.6rem; }
+    .tl-item.milestone .tl-text { color: var(--text); font-weight: 500; }
+    .tl-item.milestone .tl-dot { width: 20px; height: 20px; }
+
+    /* ── TEAM ── */
+    #team-section {
+      padding: 100px 48px;
+      background: var(--gray-bg);
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .team-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px 32px;
+      border: 1px solid var(--border);
+      transition: transform .25s ease, box-shadow .25s ease;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease, transform 0.6s ease, box-shadow .25s ease;
+    }
+    .team-card.visible { opacity: 1; transform: translateY(0); }
+    .team-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+    .team-avatar {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--dark); display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; font-weight: 100; color: #fff;
+      margin-bottom: 20px; letter-spacing: 0.05em;
+    }
+    .team-name { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .team-role { font-size: 0.82rem; font-weight: 300; color: #888; letter-spacing: 0.04em; }
+
+    /* ── FOOTER ── */
+    footer { background: #fff; border-top: 1px solid #eee; padding: 36px 48px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; max-width: 1200px; margin: 0 auto; }
+    .footer-nav { display: flex; flex-wrap: wrap; gap: 0; }
+    .footer-nav a { font-size: 0.8rem; color: #555; font-weight: 300; padding: 4px 14px; border-right: 1px solid #ccc; }
+    .footer-nav a:last-child { border-right: none; }
+    .footer-copy { font-size: 0.75rem; color: #aaa; font-weight: 300; }
+    .footer-logo img { height: 36px; width: auto; }
+
+    @media (max-width: 900px) {
+      header { padding: 0 24px; }
+      nav { display: none; }
+      .hamburger { display: flex; }
+      #timeline-section { padding: 60px 24px; }
+      .timeline-wrap::before { left: 28px; }
+      .tl-item { grid-template-columns: 56px 1fr; }
+      .tl-item:nth-child(odd) .tl-content,
+      .tl-item:nth-child(even) .tl-content { grid-column: 2; text-align: left; padding: 32px 0 32px 32px; }
+      .tl-item:nth-child(odd) .tl-empty,
+      .tl-item:nth-child(even) .tl-empty { display: none; }
+      .tl-center { grid-column: 1; }
+      .team-grid { grid-template-columns: 1fr; }
+      #team-section { padding: 60px 24px; }
+      footer { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">
+    <img src="Images/logo_keyrefinder.svg fill.png" alt="KeyRefinder® Business Clients" />
+  </a>
+  <nav id="desktop-nav">
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="index.html#produkte" data-i18n="nav_produkte">Produkte</a>
+    <a href="index.html#offerte" data-i18n="nav_offerte">Offerte</a>
+    <a href="index.html#referenzen" data-i18n="nav_referenzen">Referenzen</a>
+    <a href="system.html" data-i18n="nav_system">System</a>
+    <a href="ueber-uns.html" class="active" data-i18n="nav_ueber_uns">Über uns</a>
+    <a href="https://www.lost.ch/" target="_blank" rel="noopener" data-i18n="nav_privatkunden">Privatkunden</a>
+    <a href="offerte.html" class="btn-offerte" data-i18n="nav_btn_offerte">Offerte anfragen</a>
+    <div class="lang-dropdown" id="lang-dropdown">
+      <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">
+        <span id="lang-current">DE</span>
+        <span class="lang-arrow">&#9662;</span>
+      </button>
+      <div class="lang-menu" id="lang-menu">
+        <button onclick="setLang('DE')">DE</button>
+        <button onclick="setLang('IT')">IT</button>
+        <button onclick="setLang('FR')">FR</button>
+        <button onclick="setLang('EN')">EN</button>
+      </div>
+    </div>
+  </nav>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html" onclick="closeMenu()" data-i18n="nav_home">Home</a>
+  <a href="index.html#produkte" onclick="closeMenu()" data-i18n="nav_produkte">Produkte</a>
+  <a href="index.html#offerte" onclick="closeMenu()" data-i18n="nav_offerte">Offerte</a>
+  <a href="index.html#referenzen" onclick="closeMenu()" data-i18n="nav_referenzen">Referenzen</a>
+  <a href="system.html" onclick="closeMenu()" data-i18n="nav_system">System</a>
+  <a href="ueber-uns.html" onclick="closeMenu()" data-i18n="nav_ueber_uns">Über uns</a>
+  <a href="https://www.lost.ch/" target="_blank" rel="noopener" onclick="closeMenu()" data-i18n="nav_privatkunden">Privatkunden</a>
+  <a href="offerte.html" class="btn-offerte" onclick="closeMenu()" data-i18n="nav_btn_offerte">Offerte anfragen</a>
+</div>
+
+<!-- TEAM -->
+<section id="team-section">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="team_label">Das Team</div>
+    <div class="section-title-lg" data-i18n="team_title">Menschen hinter der Marke</div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">SK</div>
+        <div class="team-name">Sabina Klein</div>
+        <div class="team-role" data-i18n="role_ceo">CEO</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">TB</div>
+        <div class="team-name">Therese Barusco</div>
+        <div class="team-role" data-i18n="role_admin">Leitung Administration und Buchhaltung</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">AB</div>
+        <div class="team-name">Alexandra Burri</div>
+        <div class="team-role" data-i18n="role_marketing">Marketingassistentin / Privatkunden Administration</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">TJ</div>
+        <div class="team-name">Tanja Jova</div>
+        <div class="team-role" data-i18n="role_private">Privatkundenbetreuung Administration</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">DF</div>
+        <div class="team-name">Dani &amp; Furi</div>
+        <div class="team-role" data-i18n="role_backoffice">Backoffice</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">FL</div>
+        <div class="team-name">Flavia Leuenberger</div>
+        <div class="team-role" data-i18n="role_design">Graphic Design</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline-section">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="timeline_label">Unsere Geschichte</div>
+    <div class="section-title-lg" data-i18n="timeline_title">Meilensteine seit 1997</div>
+
+    <div class="timeline-wrap">
+
+      <div class="tl-item milestone">
+        <div class="tl-content">
+          <div class="tl-year">1997</div>
+          <div class="tl-title" data-i18n="tl1997_title">Die Gründung</div>
+          <div class="tl-text" data-i18n="tl1997_text">Gründung der nationalen Schlüsselfundstelle <strong>lost.ch</strong> — die erste Anlaufstelle der Schweiz für verlorene Schlüssel.</div>
+        </div>
+        <div class="tl-center"><div class="tl-dot"></div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-empty"></div>
+        <div class="tl-center"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-year">2000</div>
+          <div class="tl-title" data-i18n="tl2000_title">Digital Pioneer</div>
+          <div class="tl-text" data-i18n="tl2000_text">Gründung des ersten nationalen Fundbüros im Internet: <strong>www.fundbuero.ch</strong> — ein wegweisender Schritt in die digitale Welt.</div>
+        </div>
+      </div>
+
+      <div class="tl-item milestone">
+        <div class="tl-content">
+          <div class="tl-year">2004</div>
+          <div class="tl-title" data-i18n="tl2004_title">Eine Marke entsteht</div>
+          <div class="tl-text" data-i18n="tl2004_text">Lancierung der Marke <strong>KeyRefinder®</strong> mit dem bewährten KeyRefinderSystem® — der Beginn einer Erfolgsgeschichte.</div>
+        </div>
+        <div class="tl-center"><div class="tl-dot"></div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-empty"></div>
+        <div class="tl-center"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-year">2005</div>
+          <div class="tl-title" data-i18n="tl2005_title">Innovation</div>
+          <div class="tl-text" data-i18n="tl2005_text">Erfindung und Lancierung von <strong>BikeRefinder®</strong> — das Velofundsystem in Zusammenarbeit mit den Schweizer Velovignetten.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">2011</div>
+          <div class="tl-title" data-i18n="tl2011_title">Kooperation</div>
+          <div class="tl-text" data-i18n="tl2011_text">Strategische Kooperation mit Rubicon IT für Vertrieb und Marketing des nationalen Fundsystems <strong>easyfind®</strong>.</div>
+        </div>
+        <div class="tl-center"><div class="tl-dot"></div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <div class="tl-item milestone">
+        <div class="tl-empty"></div>
+        <div class="tl-center"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-year">2014</div>
+          <div class="tl-title" data-i18n="tl2014_title">Weltneuheit</div>
+          <div class="tl-text" data-i18n="tl2014_text">Lancierung der <strong>Weltneuheit KeyShopper®</strong> in der Schweiz — der erste Schlüsselanhänger mit integrierter Einkaufswagenfunktion.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">2017</div>
+          <div class="tl-title" data-i18n="tl2017_title">20 Jahre Jubiläum</div>
+          <div class="tl-text" data-i18n="tl2017_text">Zwei Jahrzehnte Leidenschaft für smarte Lösungen — wir feiern 20 Jahre The Key Company GmbH.</div>
+        </div>
+        <div class="tl-center"><div class="tl-dot"></div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <div class="tl-item milestone">
+        <div class="tl-empty"></div>
+        <div class="tl-center"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-year">2022</div>
+          <div class="tl-title" data-i18n="tl2022_title">25 Jahre Jubiläum</div>
+          <div class="tl-text" data-i18n="tl2022_text">Ein Vierteljahrhundert Innovation. <strong>25 Jahre</strong> The Key Company GmbH — und noch lange nicht fertig.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="Images/logo_keyrefinder.svg fill.png" alt="KeyRefinder® Business Clients" />
+    </div>
+    <nav class="footer-nav">
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="index.html#produkte" data-i18n="footer_produkte">Produkte</a>
+      <a href="index.html#offerte" data-i18n="footer_offerte">Offerte</a>
+      <a href="index.html#referenzen" data-i18n="footer_referenzen">Referenzen</a>
+      <a href="system.html" data-i18n="footer_system">System</a>
+      <a href="ueber-uns.html" data-i18n="footer_ueber_uns">Über uns</a>
+      <a href="offerte.html" data-i18n="footer_anfragen">Offerte anfragen</a>
+    </nav>
+    <div class="footer-copy">© 2025 The Key Company GmbH</div>
+  </div>
+</footer>
+
+<script>
+  /* ── Mobile nav ── */
+  function toggleMenu() {
+    document.getElementById('mobile-nav').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobile-nav').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+
+  let currentLang = 'DE';
+  function toggleLang() { document.getElementById('lang-dropdown').classList.toggle('open'); }
+  function setLang(lang) {
+    currentLang = lang;
+    document.getElementById('lang-current').textContent = lang;
+    document.querySelectorAll('.lang-menu button').forEach(b => { b.classList.toggle('active', b.textContent === lang); });
+    document.getElementById('lang-dropdown').classList.remove('open');
+    localStorage.setItem('krf_lang', lang);
+    if (window.applyTranslations) applyTranslations(lang);
+  }
+  // Apply saved language on load
+  const savedLang = localStorage.getItem('krf_lang') || 'DE';
+  setLang(savedLang);
+  document.addEventListener('click', e => { if (!document.getElementById('lang-dropdown').contains(e.target)) { document.getElementById('lang-dropdown').classList.remove('open'); } });
+
+  /* ── Intersection Observer: timeline parallax ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -60px 0px'
+  });
+
+  // Stagger timeline items
+  document.querySelectorAll('.tl-item').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.08}s`;
+    observer.observe(el);
+  });
+
+  // Stagger team cards
+  document.querySelectorAll('.team-card').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.1}s`;
+    observer.observe(el);
+  });
+
+  /* ── Parallax scroll effect on timeline line ── */
+  const timelineSection = document.getElementById('timeline-section');
+  const timelineLine = document.querySelector('.timeline-wrap::before');
+
+  window.addEventListener('scroll', () => {
+    const items = document.querySelectorAll('.tl-item');
+    const winMid = window.scrollY + window.innerHeight * 0.6;
+
+    items.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      const itemMid = rect.top + window.scrollY + rect.height / 2;
+      const dot = item.querySelector('.tl-dot');
+      if (winMid > itemMid) {
+        dot.style.background = 'var(--red)';
+        dot.style.borderColor = 'var(--red)';
+        dot.style.transform = 'scale(1.3)';
+        dot.style.transition = 'transform 0.4s ease, background 0.4s ease, border-color 0.4s ease';
+      } else {
+        dot.style.background = '#fff';
+        dot.style.borderColor = 'var(--border)';
+        dot.style.transform = 'scale(1)';
+      }
+    });
+  });
+</script>
+</body>
+</html>
