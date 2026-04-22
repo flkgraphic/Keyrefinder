@@ -8,542 +8,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100,0,0" rel="stylesheet" />
-  <script src="translations.js"></script>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    :root {
-      --red: #E31D1A;
-      --dark: #2d2d2d;
-      --gray-bg: #f4f4f4;
-      --text: #333;
-      --border: #ddd;
-    }
-
-    body { font-family: 'Inter', Arial, sans-serif; color: var(--text); font-weight: 300; }
-    button, input, textarea, select { font-family: 'Inter', Arial, sans-serif; }
-    a { text-decoration: none; color: inherit; }
-
-    /* ── HEADER ── */
-    header {
-      display: flex; align-items: stretch; justify-content: space-between;
-      padding: 0 48px; background: #fff;
-      border-bottom: 1px solid var(--border);
-      position: sticky; top: 0; z-index: 200;
-    }
-    .logo { display: flex; align-items: center; flex-shrink: 0; padding: 20px 0 8px; }
-    .logo img { height: 52px; width: auto; display: block; }
-
-    nav { display: flex; align-items: stretch; gap: 28px; }
-    nav a {
-      display: flex; align-items: center;
-      font-size: 13pt; font-weight: 300; letter-spacing: 0.08em; color: #555;
-      text-transform: uppercase; transition: color .2s; white-space: nowrap;
-      position: relative;
-    }
-    nav a:hover { color: var(--red); }
-    nav a.active { color: var(--red); font-weight: 700; }
-    nav a.active::after {
-      content: ''; position: absolute; top: 0; left: 0; right: 0;
-      height: 2.5px; background: var(--red);
-    }
-    .btn-offerte {
-      align-self: center;
-      background: var(--red); color: #fff; font-size: 0.8rem; font-weight: 700;
-      letter-spacing: 0.06em; text-transform: uppercase; padding: 11px 22px;
-      border-radius: 12px; border: none; cursor: pointer; transition: background .2s;
-      white-space: nowrap; text-decoration: none; display: inline-block;
-    }
-    .btn-offerte:hover { background: #b71c1c; }
-
-    /* Language dropdown */
-    .lang-dropdown { position: relative; align-self: center; margin-left: -18px; }
-    .lang-toggle {
-      display: flex; align-items: center; gap: 5px;
-      background: none; border: 1px solid #ddd; border-radius: 12px;
-      padding: 11px 14px; cursor: pointer; font-family: 'Inter', Arial, sans-serif;
-      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; color: #555;
-      transition: border-color .2s, color .2s;
-    }
-    .lang-toggle:hover { border-color: var(--red); color: var(--red); }
-    .lang-arrow { font-size: 0.6rem; color: #aaa; transition: transform .2s; }
-    .lang-dropdown.open .lang-arrow { transform: rotate(180deg); }
-    .lang-menu {
-      display: none; position: absolute; top: calc(100% + 8px); right: 0;
-      background: #fff; border: 1px solid #e4e4e4; border-radius: 10px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08); overflow: hidden; min-width: 64px;
-      z-index: 300;
-    }
-    .lang-dropdown.open .lang-menu { display: block; }
-    .lang-menu button {
-      display: block; width: 100%; padding: 9px 16px; text-align: left;
-      background: none; border: none; cursor: pointer;
-      font-family: 'Inter', Arial, sans-serif; font-size: 0.75rem;
-      font-weight: 300; letter-spacing: 0.06em; color: #555; transition: color .15s, background .15s;
-    }
-    .lang-menu button:hover { background: #f7f7f7; color: var(--red); }
-    .lang-menu button.active { font-weight: 700; color: var(--red); }
-
-    /* Hamburger */
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; align-self: center; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: #333; border-radius: 2px; transition: all .3s; }
-    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-    /* Mobile nav drawer */
-    .mobile-nav {
-      display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
-      background: #fff; z-index: 190; flex-direction: column; padding: 32px 24px;
-      gap: 0; overflow-y: auto;
-    }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a {
-      font-size: 13pt; font-weight: 300; letter-spacing: 0.08em; color: #555;
-      text-transform: uppercase; padding: 14px 0;
-    }
-    .mobile-nav a:hover { color: var(--red); }
-    .mobile-nav .btn-offerte {
-      margin-top: 28px; text-align: center; display: block; padding: 14px 22px;
-      background: var(--red); color: #fff; font-size: 0.8rem; font-weight: 700;
-      letter-spacing: 0.06em; border-radius: 12px;
-    }
-    .mobile-nav .btn-offerte:hover { background: #b71c1c; color: #fff; }
-
-    /* ── HERO ── */
-    #home {
-      position: relative; overflow: hidden;
-      min-height: 610px;
-      background: center center / cover no-repeat;
-      display: flex; align-items: center;
-    }
-    .hero-text-overlay {
-      position: relative; z-index: 2;
-      margin-left: auto; margin-right: 14%;
-      max-width: 560px; padding: 40px 0;
-    }
-    .hero-text-overlay h1 {
-      font-size: 2.5rem; font-weight: 700; color: #111;
-      line-height: 1.15; margin-bottom: 22px;
-    }
-    .hero-text-overlay ul { list-style: none; }
-    .hero-text-overlay ul li {
-      font-size: 1.1rem; color: #222; margin-bottom: 9px;
-      font-weight: 300; display: flex; gap: 8px;
-    }
-    .hero-text-overlay ul li::before { content: '✓'; color: #333; font-weight: 700; flex-shrink: 0; display: inline-block; }
-
-    /* ── LOGO TICKER ── */
-    .ticker-wrap { overflow: hidden; background: #fff; padding: 16px 0; }
-    .ticker-track { display: flex; align-items: center; width: max-content; animation: ticker 40s linear infinite; gap: 0; }
-    .ticker-track:hover { animation-play-state: paused; }
-    .ticker-logo { height: 44px; width: auto; object-fit: contain; display: block; flex-shrink: 0; padding: 0 28px; box-sizing: content-box; }
-    /* Per-logo height adjustments for logos with excess whitespace */
-    .ticker-logo[data-logo="allianz"]     { height: 86px; }
-    .ticker-logo[data-logo="amag"]        { height: 68px; }
-    .ticker-logo[data-logo="huawei"]      { height: 140px; }
-    .ticker-logo[data-logo="swica"]       { height: 88px; }
-    .ticker-logo[data-logo="swisscom"]    { height: 58px; }
-    .ticker-logo[data-logo="mobility"]    { height: 80px; }
-    .ticker-logo[data-logo="toyota"]      { height: 68px; }
-    .ticker-logo[data-logo="tcs"]         { height: 80px; }
-    .ticker-logo[data-logo="vw"]          { height: 80px; }
-    .ticker-logo[data-logo="raiffeisen"]  { height: 32px; }
-    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-    /* ── SECTION TITLES ── */
-    .section-title { text-align: center; font-size: 1.7rem; font-weight: 100; letter-spacing: 0.04em; margin-bottom: 44px; color: #444; }
-
-    /* ── WHY SECTION ── */
-    #warum { padding: 56px 48px 100px; background: #fff; scroll-margin-top: 82px; }
-    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; align-items: start; }
-    .why-card { background: var(--gray-bg); border-radius: 12px; padding: 40px 28px 28px; display: flex; flex-direction: column; align-items: center; }
-    .why-icon { width: 80px; height: 80px; margin-bottom: 18px; object-fit: contain; display: block; }
-    .why-card h3 { font-size: 0.98rem; font-weight: 700; margin-bottom: 12px; color: #222; align-self: stretch; text-align: left; }
-    .why-card .short-text { font-size: 0.87rem; line-height: 1.7; color: #555; font-weight: 300; align-self: stretch; text-align: left; }
-    .why-card .long-text { font-size: 0.87rem; line-height: 1.7; color: #555; font-weight: 300; margin-top: 12px; display: none; align-self: stretch; text-align: left; }
-    .why-card .long-text.visible { display: block; }
-    .more-btn {
-      margin-top: 22px; align-self: center;
-      width: 36px; height: 36px; border-radius: 50%;
-      border: 1px solid #bbb; display: flex; align-items: center; justify-content: center;
-      color: #aaa; cursor: pointer; transition: all .2s; user-select: none;
-      background: none;
-    }
-    .more-btn:hover { border-color: var(--red); color: var(--red); }
-    .more-btn .material-symbols-outlined {
-      font-size: 20px; font-variation-settings: 'wght' 100;
-      transition: transform .25s ease;
-    }
-    .more-btn.open .material-symbols-outlined { transform: rotate(45deg); }
-
-    /* ── PRODUCTS ── */
-    #produkte { padding: 0 48px; background: var(--gray-bg); min-height: 700px; box-sizing: border-box; display: grid; grid-template-rows: auto 1fr auto; scroll-margin-top: 82px; }
-    #produkte .section-title { padding-top: 48px; }
-    .prod-slider-wrap { position: relative; max-width: 1200px; width: 100%; margin: 0 auto; align-self: center; padding: 0 52px; box-sizing: border-box; }
-    .prod-slider-wrap { align-self: center; }
-    .prod-slides { position: relative; height: 300px; overflow: hidden; }
-    .prod-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center; gap: 5%;
-      opacity: 0; pointer-events: none;
-      transform: translateX(120px);
-      transition: opacity .45s ease, transform .45s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-    .prod-slide.active { opacity: 1; pointer-events: auto; transform: translateX(0); }
-    .prod-slide.slide-out-left { opacity: 0; transform: translateX(-120px); transition: opacity .45s ease, transform .45s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-    .prod-slide.slide-out-right { opacity: 0; transform: translateX(120px); transition: opacity .45s ease, transform .45s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-    .prod-img-box {
-      flex: 0 0 44%; max-width: 520px; height: 300px; background: #fff; border-radius: 12px;
-      overflow: hidden;
-    }
-    .prod-img-box img { width: 100%; height: 100%; object-fit: cover; }
-    .prod-img-box .placeholder { font-size: 5rem; color: #ccc; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
-    .prod-info { flex: 0 1 44%; max-width: 480px; }
-    .prod-info h2 { font-size: 1.55rem; font-weight: 700; margin-bottom: 16px; color: #222; }
-    .prod-info p { font-size: 0.92rem; line-height: 1.75; color: #555; font-weight: 300; }
-    .slide-nav {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: none; border: none;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; color: #aaa; transition: color .2s; z-index: 10; padding: 4px;
-    }
-    .slide-nav:hover { color: var(--red); }
-    .slide-nav .material-symbols-outlined { font-size: 42px; font-variation-settings: 'wght' 200, 'GRAD' 0, 'opsz' 48; }
-    .slide-nav.prev { left: 0; }
-    .slide-nav.next { right: 0; }
-    .dots { display: flex; justify-content: center; gap: 6px; padding-bottom: 48px; align-self: end; }
-    #produkte .dots, #referenzen .ref-dots { margin-top: 70px; }
-    .dot { width: 7px; height: 7px; border-radius: 50%; background: #ccc; cursor: pointer; transition: background .2s; border: none; padding: 0; }
-    .dot.active { background: #333; }
-    /* Dark section (Referenzen): invert dot colors */
-    #referenzen .dot { background: #585858; }
-    #referenzen .dot.active { background: #fff; }
-
-    /* ── OFFERTE ── */
-    #offerte { padding: 48px 48px 60px; background: #fff; min-height: 700px; box-sizing: border-box; scroll-margin-top: 82px; }
-    .offerte-inner {
-      display: flex; gap: 72px; align-items: center;
-      max-width: 1200px; margin: 0 auto;
-    }
-    .offerte-images { display: flex; gap: 16px; flex-shrink: 0; align-items: flex-start; }
-    .off-model {
-      position: relative; border-radius: 22px;
-      transition: transform .22s ease;
-      cursor: pointer;
-    }
-    .off-model:hover { transform: translateY(-6px); }
-    .off-model.active { box-shadow: 0 0 0 2.5px var(--red); }
-    .off-img-card {
-      width: 210px; height: 340px;
-      border-radius: 22px;
-      overflow: hidden;
-      position: relative;
-    }
-    .off-carousel {
-      display: flex; width: 100%; height: 100%;
-      transition: transform .45s ease;
-    }
-    .off-carousel img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; display: block; }
-    /* Dots inside image at bottom */
-    .off-cdots {
-      position: absolute; bottom: 12px;
-      left: 50%; transform: translateX(-50%);
-      display: flex; gap: 5px; z-index: 10;
-    }
-    .off-cdot {
-      width: 5px; height: 5px; border-radius: 50%;
-      background: rgba(0,0,0,0.2); cursor: pointer;
-      transition: background .2s; border: none; padding: 0;
-    }
-    .off-cdot.active { background: rgba(0,0,0,0.5); }
-    /* Arrows inside image */
-    .off-arrow {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      z-index: 10; background: none;
-      border: none; cursor: pointer;
-      color: rgba(0,0,0,0.28); padding: 6px 5px;
-      line-height: 1; transition: color .2s;
-      display: flex; align-items: center;
-    }
-    .off-arrow:hover { color: rgba(0,0,0,0.6); }
-    .off-arrow .material-symbols-outlined { font-size: 20px; font-variation-settings: 'wght' 200, 'GRAD' 0, 'opsz' 24; }
-    .off-arrow-prev { left: 6px; }
-    .off-arrow-next { right: 6px; }
-    .offerte-config { flex: 0 0 340px; }
-    .config-block { margin-bottom: 24px; }
-    .config-lbl {
-      font-size: 1rem; line-height: 1.45;
-      margin-bottom: 13px; color: #111;
-    }
-    .config-lbl strong { font-weight: 500; font-size: 1rem; color: #111; }
-    .config-lbl span { font-weight: 500; font-size: 0.88rem; color: #aaa; }
-    /* Model buttons: 2 columns, Eigene Form alone on row 2 */
-    .model-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .model-grid .sel-btn:last-child { grid-column: 1; }
-    .sel-btn {
-      padding: 10px 16px; border: 1px solid #c8c8c8; border-radius: 12px;
-      font-size: 0.875rem; font-weight: 500; background: #fff; cursor: pointer;
-      transition: border-color .15s, color .15s; color: #222; text-align: left; line-height: 1;
-    }
-    .sel-btn:hover { border-color: var(--red); color: var(--red); }
-    .sel-btn.active { border-color: var(--red); border-width: 2px; color: var(--red); }
-    .qty-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .qty-btn {
-      padding: 11px 14px; border: 1px solid #c8c8c8; border-radius: 12px;
-      background: #fff; cursor: pointer; text-align: left; transition: border-color .15s;
-    }
-    .qty-btn:hover { border-color: var(--red); }
-    .qty-btn.active { border-color: var(--red); border-width: 2px; }
-    .qty-custom { cursor: text; }
-    .qty-custom input { border: none; outline: none; background: transparent; font-family: 'Inter', Arial, sans-serif; font-size: 0.97rem; font-weight: 500; color: #111; width: 100%; padding: 0; }
-    .qty-custom input::placeholder { color: #aaa; font-weight: 300; }
-    .qty-custom input::-webkit-inner-spin-button,
-    .qty-custom input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
-    .qty-num { font-size: 0.97rem; font-weight: 500; display: block; color: #111; margin-bottom: 3px; }
-    .qty-price { font-size: 0.76rem; color: #888; font-weight: 300; }
-    .off-dots { display: flex; justify-content: center; gap: 6px; margin: 12px 0 18px; }
-    .off-dot { width: 7px; height: 7px; border-radius: 50%; background: #ccc; border: none; padding: 0; cursor: pointer; transition: background .2s; }
-    .off-dot.active { background: #333; }
-    .btn-weiter {
-      width: 100%; padding: 16px; background: var(--red); color: #fff;
-      border: none; border-radius: 12px; font-size: 1rem; font-weight: 700;
-      cursor: pointer; letter-spacing: 0.04em; transition: background .2s;
-    }
-    .btn-weiter:hover { background: #b71c1c; }
-
-    /* ── OFFERTE STEPS ── */
-    @keyframes slideInRight { from { opacity:0; transform:translateX(28px); } to { opacity:1; transform:translateX(0); } }
-    @keyframes slideInLeft  { from { opacity:0; transform:translateX(-28px); } to { opacity:1; transform:translateX(0); } }
-    .offerte-steps-outer { overflow: hidden; }
-    .step-anim-right { animation: slideInRight .3s ease forwards; }
-    .step-anim-left  { animation: slideInLeft  .3s ease forwards; }
-    .offerte-error {
-      display: none; color: var(--red); font-size: 0.82rem;
-      font-weight: 300; margin-bottom: 10px;
-    }
-    .offerte-error.visible { display: block; }
-    .step2-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
-    .step2-summary {
-      flex: 1; background: #f7f7f7; border-radius: 12px; padding: 10px 14px;
-      font-size: 0.85rem; color: #666; font-weight: 300;
-    }
-    .step2-summary strong { font-weight: 500; color: #111; }
-    .form-group { margin-bottom: 14px; }
-    .form-label {
-      display: block; font-size: 0.78rem; font-weight: 500;
-      color: #555; margin-bottom: 6px; letter-spacing: 0.02em;
-    }
-    .form-input {
-      width: 100%; padding: 11px 14px;
-      border: 1px solid #c8c8c8; border-radius: 12px;
-      font-family: 'Inter', Arial, sans-serif; font-size: 0.88rem; font-weight: 300;
-      color: #111; background: #fff; outline: none;
-      transition: border-color .15s; box-sizing: border-box;
-    }
-    .form-input:focus { border-color: var(--red); border-width: 2px; }
-    .form-textarea { resize: vertical; min-height: 88px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .form-optional { font-weight: 300; color: #bbb; font-size: 0.74rem; margin-left: 4px; }
-    .form-error { display: none; color: var(--red); font-size: 0.75rem; font-weight: 300; margin-top: 5px; }
-    .form-error.visible { display: block; }
-    .form-input.invalid { border-color: var(--red); border-width: 2px; }
-    .file-upload-input { display: none; }
-    .file-upload-label {
-      display: flex; align-items: center; gap: 10px;
-      padding: 11px 14px; border: 1px dashed #c8c8c8; border-radius: 12px;
-      cursor: pointer; font-size: 0.88rem; font-weight: 300; color: #aaa;
-      transition: border-color .15s, color .15s;
-    }
-    .file-upload-label:hover { border-color: var(--red); color: var(--red); }
-    .file-upload-label .material-symbols-outlined { font-size: 18px; font-variation-settings: 'wght' 300, 'GRAD' 0, 'opsz' 20; flex-shrink: 0; }
-    .btn-back {
-      background: none; border: none; color: #bbb;
-      cursor: pointer; padding: 6px; flex-shrink: 0;
-      display: flex; align-items: center; border-radius: 8px;
-      transition: color .2s, background .2s;
-    }
-    .btn-back:hover { color: #555; background: #f0f0f0; }
-    .btn-back .material-symbols-outlined { font-size: 20px; font-variation-settings: 'wght' 300, 'GRAD' 0, 'opsz' 24; }
-    .offerte-images.locked { pointer-events: none; }
-
-    /* ── REFERENZEN ── */
-    #referenzen { padding: 0 48px; background: var(--dark); min-height: 700px; box-sizing: border-box; display: grid; grid-template-rows: auto 1fr auto; scroll-margin-top: 82px; }
-    #referenzen .section-title { color: #ccc; padding-top: 48px; }
-    .ref-slider-wrap { position: relative; max-width: 1200px; width: 100%; margin: 0 auto; align-self: center; padding: 0 52px; box-sizing: border-box; }
-    /* Fixed-height slides container — no layout jump */
-    .ref-slides-container { position: relative; height: 300px; overflow: hidden; }
-    .ref-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center; gap: 5%;
-      opacity: 0; pointer-events: none;
-      transform: translateX(120px);
-      transition: opacity .45s ease, transform .45s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-    .ref-slide.active { opacity: 1; pointer-events: auto; transform: translateX(0); }
-    .ref-slide.slide-out-left { opacity: 0; transform: translateX(-120px); transition: opacity .45s ease, transform .45s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-    .ref-slide.slide-out-right { opacity: 0; transform: translateX(120px); transition: opacity .45s ease, transform .45s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-    .ref-img-box {
-      flex: 0 0 44%; max-width: 520px; height: 300px; border-radius: 14px;
-      background: #2a2a2a; overflow: hidden;
-    }
-    .ref-img-box img { width: 100%; height: 100%; object-fit: cover; }
-    .ref-img-box .ref-initial { font-size: 3.5rem; font-weight: 100; color: #5b9bd5; letter-spacing: 0.05em; line-height: 1; }
-    .ref-content { flex: 0 1 44%; max-width: 480px; color: #ccc; }
-    .ref-product { font-size: 16pt; margin-bottom: 8px; color: #fff; font-weight: 300; letter-spacing: 0.04em; }
-    .ref-company { font-size: 16pt; font-weight: 700; color: var(--red); margin-bottom: 20px; }
-    .ref-quote { font-size: 13pt; line-height: 1.8; margin-bottom: 24px; color: #ccc; font-weight: 300; }
-    .ref-author { font-weight: 700; font-size: 13pt; color: #fff; }
-    .ref-nav {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: none; border: none;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; color: #666; transition: color .2s; padding: 4px; z-index: 10;
-    }
-    .ref-nav:hover { color: #fff; }
-    .ref-nav .material-symbols-outlined { font-size: 42px; font-variation-settings: 'wght' 200, 'GRAD' 0, 'opsz' 48; }
-    .ref-nav.prev { left: 0; }
-    .ref-nav.next { right: 0; }
-    .ref-dots { display: flex; justify-content: center; padding-bottom: 48px; align-self: end; }
-    .ref-dots-window { position: relative; width: 83px; height: 7px; overflow: hidden; flex-shrink: 0; }
-    .ref-dots-track { position: absolute; top: 0; left: 0; display: flex; gap: 6px; transition: transform 0.3s ease; }
-    #ref-dots .dot { flex: 0 0 7px; width: 7px; height: 7px; background: #585858; transition: background .2s; }
-    #ref-dots .dot.active { background: #fff; }
-
-    /* ── FOOTER ── */
-    footer { background: #fff; border-top: 1px solid #eee; padding: 36px 48px; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; max-width: 1200px; margin: 0 auto; }
-    .footer-nav { display: flex; flex-wrap: wrap; gap: 0; }
-    .footer-nav a { font-size: 0.8rem; color: #555; font-weight: 300; padding: 4px 14px; border-right: 1px solid #ccc; }
-    .footer-nav a:last-child { border-right: none; }
-    .footer-nav a:hover { color: var(--red); }
-
-    /* ════════════════════════════
-       RESPONSIVE / MOBILE
-    ════════════════════════════ */
-    @media (max-width: 900px) {
-      header { padding: 14px 24px; }
-      nav { display: none; }
-      .hamburger { display: flex; }
-
-      /* Hero */
-      #home { padding: 40px 24px; min-height: unset; }
-      .hero-inner { flex-direction: column; gap: 28px; }
-      .hero-img-box { flex: none; width: 100%; height: 220px; }
-      .hero-text h1 { font-size: 1.8rem; }
-      .hero-text ul li { font-size: 0.9rem; }
-
-      /* Why */
-      #warum { padding: 48px 24px; }
-      .why-grid { grid-template-columns: 1fr; gap: 16px; }
-
-      /* Products */
-      #produkte { padding: 48px 24px; }
-      .prod-slider-wrap { padding: 0; }
-      .prod-slides { height: auto; }
-      .prod-slide { position: relative; display: none; flex-direction: column; gap: 20px; opacity: 1 !important; transform: none !important; transition: none !important; }
-      .prod-slide.active { display: flex; }
-      .prod-img-box { flex: none; width: 100%; max-width: none; height: auto; aspect-ratio: 8/5; }
-      .prod-info { flex: 0 0 auto; max-width: none; padding-bottom: 8px; }
-      .prod-info h2 { font-size: 1.2rem; }
-      .slide-nav { display: none; }
-
-      /* Offerte */
-      #offerte { padding: 48px 24px; }
-      .offerte-inner { flex-direction: column; gap: 32px; }
-      .offerte-images { justify-content: center; }
-      .offerte-images { width: 100%; }
-      .off-model { flex: 1; }
-      .off-img-card { width: 100%; height: auto; aspect-ratio: 210/340; }
-      .qty-grid { grid-template-columns: 1fr 1fr; }
-
-      /* Referenzen */
-      #referenzen { padding: 48px 24px; }
-      .ref-slider-wrap { padding: 0; }
-      .ref-slides-container { height: auto; }
-      .ref-slide { position: relative; display: none; flex-direction: column; gap: 20px; opacity: 1 !important; transform: none !important; transition: none !important; }
-      .ref-slide.active { display: flex; }
-      .ref-img-box { flex: none; width: 100%; max-width: none; height: auto; aspect-ratio: 8/5; }
-      .ref-content { flex: 0 0 auto; max-width: none; }
-      .ref-nav { display: none; }
-
-      /* Footer */
-      footer { padding: 28px 24px; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
-      .footer-nav { flex-direction: column; gap: 2px; }
-      .footer-nav a { border-right: none; border-bottom: 1px solid #eee; padding: 8px 0; }
-      .footer-nav a:last-child { border-bottom: none; }
-    }
-
-    @media (max-width: 600px) {
-      .hero-text h1 { font-size: 1.5rem; }
-      .section-title { font-size: 1.35rem; }
-      .offerte-images { flex-wrap: wrap; justify-content: center; }
-    }
-
-    /* ── MICRO-ANIMATIONS ── */
-
-    /* Scroll fade-up */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(36px);
-      transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-    /* Fade in only (no movement) */
-    .fade-in {
-      opacity: 0;
-      transition: opacity 0.7s ease;
-    }
-    .fade-in.visible { opacity: 1; }
-
-    /* Page load: hero */
-    @keyframes heroSlideUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .hero-text-overlay h1 {
-      animation: heroSlideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
-    }
-    .hero-text-overlay li {
-      opacity: 0;
-      animation: heroSlideUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-    }
-    .hero-text-overlay li:nth-child(1) { animation-delay: 0.45s; }
-    .hero-text-overlay li:nth-child(2) { animation-delay: 0.58s; }
-    .hero-text-overlay li:nth-child(3) { animation-delay: 0.71s; }
-    .hero-text-overlay li:nth-child(4) { animation-delay: 0.84s; }
-
-    /* Why-card hover lift */
-    .why-card {
-      transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.65s ease, margin-bottom 0.3s ease;
-    }
-    .why-card:hover { transform: translateY(-6px); box-shadow: 0 6px 18px rgba(0,0,0,0.05); }
-
-    /* Section titles */
-    .section-title { transition: opacity 0.6s ease, transform 0.6s ease; }
-
-    /* Offerte image cards hover */
-    .off-model { transition: transform 0.25s ease; }
-    .off-model:hover { transform: translateY(-5px) scale(1.02); }
-
-    /* Buttons pulse-on-hover */
-    .btn-weiter, .btn-offerte {
-      transition: background 0.2s ease, transform 0.18s ease, box-shadow 0.18s ease;
-    }
-    .btn-weiter:hover, .btn-offerte:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(227,29,26,0.3);
-    }
-
-    /* Why-card more-btn spin */
-    .more-btn { transition: background 0.2s ease, color 0.2s ease; }
-  </style>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/index.css" />
 </head>
 <body>
 
 <!-- HEADER -->
 <header>
   <a href="#home" class="logo">
-    <img src="Images/logo_keyrefinder.svg fill.png" alt="KeyRefinder® Business Clients" />
+    <img src="assets/images/logo.png" alt="KeyRefinder® Business Clients" />
   </a>
   <nav id="desktop-nav">
     <a href="#home" class="active" data-i18n="nav_home">Home</a>
@@ -555,17 +28,17 @@
     <a href="https://www.lost.ch/" target="_blank" rel="noopener" data-i18n="nav_privatkunden">Privatkunden</a>
     <a href="offerte.html" class="btn-offerte" data-i18n="nav_btn_offerte">Offerte anfragen</a>
     <div class="lang-dropdown" id="lang-dropdown">
-    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">
-      <span id="lang-current">DE</span>
-      <span class="lang-arrow">&#9662;</span>
-    </button>
-    <div class="lang-menu" id="lang-menu">
-      <button onclick="setLang('DE')">DE</button>
-      <button onclick="setLang('IT')">IT</button>
-      <button onclick="setLang('FR')">FR</button>
-      <button onclick="setLang('EN')">EN</button>
+      <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">
+        <span id="lang-current">DE</span>
+        <span class="lang-arrow">&#9662;</span>
+      </button>
+      <div class="lang-menu" id="lang-menu">
+        <button onclick="setLang('DE')">DE</button>
+        <button onclick="setLang('IT')">IT</button>
+        <button onclick="setLang('FR')">FR</button>
+        <button onclick="setLang('EN')">EN</button>
+      </div>
     </div>
-  </div>
   </nav>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -600,35 +73,35 @@
 <!-- LOGO TICKER -->
 <div class="ticker-wrap">
   <div class="ticker-track">
-    <img class="ticker-logo" data-logo="allianz"  src="Logos carousell/allianz-logo.jpg" alt="Allianz Logo" />
-    <img class="ticker-logo"                       src="Logos carousell/allreal-logo.png" alt="Allreal Logo" />
-    <img class="ticker-logo" data-logo="amag"      src="Logos carousell/amag-logo.png" alt="AMAG Logo" />
-    <img class="ticker-logo" data-logo="huawei"    src="Logos carousell/huawei-logo.svg" alt="Huawei Logo" />
-    <img class="ticker-logo"                       src="Logos carousell/ikea-logo.png" alt="IKEA Logo" />
-    <img class="ticker-logo" data-logo="mobility"  src="Logos carousell/mobility-logo.png" alt="Mobility Logo" />
-    <img class="ticker-logo"                       src="Logos carousell/srk-schweizerisches-rotes-kreuz-logo.jpg" alt="Schweizerisches Rotes Kreuz Logo" />
-    <img class="ticker-logo" data-logo="swica"     src="Logos carousell/swica-logo.png" alt="SWICA Logo" />
-    <img class="ticker-logo" data-logo="swisscom"  src="Logos carousell/swisscom-logo.png" alt="Swisscom Logo" />
-    <img class="ticker-logo" data-logo="tcs"        src="Logos carousell/tcs-logo.png" alt="TCS Logo" />
-    <img class="ticker-logo" data-logo="toyota"    src="Logos carousell/toyota-logo.jpg" alt="Toyota Logo" />
-    <img class="ticker-logo"                       src="Logos carousell/ubs-logo.png" alt="UBS Logo" />
-    <img class="ticker-logo" data-logo="vw"         src="Logos carousell/volkswagen-logo.png" alt="Volkswagen Logo" />
-    <img class="ticker-logo" data-logo="raiffeisen" src="Logos carousell/raiffeisen-logo.png" alt="Raiffeisen Logo" />
+    <img class="ticker-logo" data-logo="allianz"    src="assets/images/carousel/allianz-logo.jpg" alt="Allianz Logo" />
+    <img class="ticker-logo"                         src="assets/images/carousel/allreal-logo.png" alt="Allreal Logo" />
+    <img class="ticker-logo" data-logo="amag"        src="assets/images/carousel/amag-logo.png" alt="AMAG Logo" />
+    <img class="ticker-logo" data-logo="huawei"      src="assets/images/carousel/huawei-logo.svg" alt="Huawei Logo" />
+    <img class="ticker-logo"                         src="assets/images/carousel/ikea-logo.png" alt="IKEA Logo" />
+    <img class="ticker-logo" data-logo="mobility"    src="assets/images/carousel/mobility-logo.png" alt="Mobility Logo" />
+    <img class="ticker-logo"                         src="assets/images/carousel/srk-schweizerisches-rotes-kreuz-logo.jpg" alt="Schweizerisches Rotes Kreuz Logo" />
+    <img class="ticker-logo" data-logo="swica"       src="assets/images/carousel/swica-logo.png" alt="SWICA Logo" />
+    <img class="ticker-logo" data-logo="swisscom"    src="assets/images/carousel/swisscom-logo.png" alt="Swisscom Logo" />
+    <img class="ticker-logo" data-logo="tcs"         src="assets/images/carousel/tcs-logo.png" alt="TCS Logo" />
+    <img class="ticker-logo" data-logo="toyota"      src="assets/images/carousel/toyota-logo.jpg" alt="Toyota Logo" />
+    <img class="ticker-logo"                         src="assets/images/carousel/ubs-logo.png" alt="UBS Logo" />
+    <img class="ticker-logo" data-logo="vw"          src="assets/images/carousel/volkswagen-logo.png" alt="Volkswagen Logo" />
+    <img class="ticker-logo" data-logo="raiffeisen"  src="assets/images/carousel/raiffeisen-logo.png" alt="Raiffeisen Logo" />
     <!-- Duplicate for seamless loop -->
-    <img class="ticker-logo" data-logo="allianz"  src="Logos carousell/allianz-logo.jpg" alt="Allianz Logo" />
-    <img class="ticker-logo"                       src="Logos carousell/allreal-logo.png" alt="Allreal Logo" />
-    <img class="ticker-logo" data-logo="amag"      src="Logos carousell/amag-logo.png" alt="AMAG Logo" />
-    <img class="ticker-logo" data-logo="huawei"    src="Logos carousell/huawei-logo.svg" alt="Huawei Logo" />
-    <img class="ticker-logo"                       src="Logos carousell/ikea-logo.png" alt="IKEA Logo" />
-    <img class="ticker-logo" data-logo="mobility"  src="Logos carousell/mobility-logo.png" alt="Mobility Logo" />
-    <img class="ticker-logo"                       src="Logos carousell/srk-schweizerisches-rotes-kreuz-logo.jpg" alt="Schweizerisches Rotes Kreuz Logo" />
-    <img class="ticker-logo" data-logo="swica"     src="Logos carousell/swica-logo.png" alt="SWICA Logo" />
-    <img class="ticker-logo" data-logo="swisscom"  src="Logos carousell/swisscom-logo.png" alt="Swisscom Logo" />
-    <img class="ticker-logo" data-logo="tcs"        src="Logos carousell/tcs-logo.png" alt="TCS Logo" />
-    <img class="ticker-logo" data-logo="toyota"    src="Logos carousell/toyota-logo.jpg" alt="Toyota Logo" />
-    <img class="ticker-logo"                       src="Logos carousell/ubs-logo.png" alt="UBS Logo" />
-    <img class="ticker-logo" data-logo="vw"         src="Logos carousell/volkswagen-logo.png" alt="Volkswagen Logo" />
-    <img class="ticker-logo" data-logo="raiffeisen" src="Logos carousell/raiffeisen-logo.png" alt="Raiffeisen Logo" />
+    <img class="ticker-logo" data-logo="allianz"    src="assets/images/carousel/allianz-logo.jpg" alt="Allianz Logo" />
+    <img class="ticker-logo"                         src="assets/images/carousel/allreal-logo.png" alt="Allreal Logo" />
+    <img class="ticker-logo" data-logo="amag"        src="assets/images/carousel/amag-logo.png" alt="AMAG Logo" />
+    <img class="ticker-logo" data-logo="huawei"      src="assets/images/carousel/huawei-logo.svg" alt="Huawei Logo" />
+    <img class="ticker-logo"                         src="assets/images/carousel/ikea-logo.png" alt="IKEA Logo" />
+    <img class="ticker-logo" data-logo="mobility"    src="assets/images/carousel/mobility-logo.png" alt="Mobility Logo" />
+    <img class="ticker-logo"                         src="assets/images/carousel/srk-schweizerisches-rotes-kreuz-logo.jpg" alt="Schweizerisches Rotes Kreuz Logo" />
+    <img class="ticker-logo" data-logo="swica"       src="assets/images/carousel/swica-logo.png" alt="SWICA Logo" />
+    <img class="ticker-logo" data-logo="swisscom"    src="assets/images/carousel/swisscom-logo.png" alt="Swisscom Logo" />
+    <img class="ticker-logo" data-logo="tcs"         src="assets/images/carousel/tcs-logo.png" alt="TCS Logo" />
+    <img class="ticker-logo" data-logo="toyota"      src="assets/images/carousel/toyota-logo.jpg" alt="Toyota Logo" />
+    <img class="ticker-logo"                         src="assets/images/carousel/ubs-logo.png" alt="UBS Logo" />
+    <img class="ticker-logo" data-logo="vw"          src="assets/images/carousel/volkswagen-logo.png" alt="Volkswagen Logo" />
+    <img class="ticker-logo" data-logo="raiffeisen"  src="assets/images/carousel/raiffeisen-logo.png" alt="Raiffeisen Logo" />
   </div>
 </div>
 
@@ -638,7 +111,7 @@
   <div class="why-grid">
 
     <div class="why-card fade-up">
-      <img class="why-icon" src="Images/Group 10.png" alt="Individuelles Branding" />
+      <img class="why-icon" src="assets/images/ui/why-branding.png" alt="Individuelles Branding" />
       <h3 data-i18n="why1_h3">Individuelles Branding</h3>
       <p class="short-text" data-i18n="why1_short">Ihr Branding in Perfektion. Wir setzen Ihre Corporate Identity durch massgeschneiderte Sonderformen und präzise Farbabstimmungen kompromisslos für Ihr Unternehmen in Szene.</p>
       <p class="long-text" id="why1-long" data-i18n="why1_long">Geben Sie sich nicht mit Standardlösungen zufrieden. Wir produzieren hochwertige Unikate, die Ihre Markenidentität exakt widerspiegeln. Ob als klassischer Anhänger oder erweitert um die praktische KeyShopper®-Funktion als Einkaufswagenlöser – wir begleiten Sie vom ersten Entwurf bis zur Spezialverpackung für eine durchgängige Markenbotschaft.</p>
@@ -646,7 +119,7 @@
     </div>
 
     <div class="why-card fade-up" style="transition-delay:0.12s">
-      <img class="why-icon" src="Images/2.png" alt="Nachhaltiger Edelstahl" />
+      <img class="why-icon" src="assets/images/ui/why-stahl.png" alt="Nachhaltiger Edelstahl" />
       <h3 data-i18n="why2_h3">Nachhaltiger Edelstahl</h3>
       <p class="short-text" data-i18n="why2_short">Setzen Sie auf Qualität mit Ewigkeitswert. Rostfreier Edelstahl garantiert eine edle Haptik und extreme Langlebigkeit – die nachhaltige und wertige Alternative zu Kunststoff.</p>
       <p class="long-text" id="why2-long" data-i18n="why2_long">Vergessen Sie kurzlebige Give-aways. Die Verwendung von massivem Edelstahl sorgt für ein wertiges Gewicht in der Hand und stellt sicher, dass Ihre Werbebotschaft über Jahrzehnte hinweg täglich präsent bleibt. Ein Statement für Qualität und ökologische Verantwortung, das den Wert Ihres Unternehmens widerspiegelt.</p>
@@ -654,7 +127,7 @@
     </div>
 
     <div class="why-card fade-up" style="transition-delay:0.24s">
-      <img class="why-icon" src="Images/3.png" alt="Sicherer Fundservice" />
+      <img class="why-icon" src="assets/images/ui/why-service.png" alt="Sicherer Fundservice" />
       <h3 data-i18n="why3_h3">Sicherer Fundservice</h3>
       <p class="short-text" data-i18n="why3_short">Unser Schweizer System organisiert die komplette Logistik verlorener Schlüssel – wahlweise per Postweg oder Direktkontakt, diskret und anonym. Kundenpflege und Datensicherheit sind unser Markenzeichen.</p>
       <p class="long-text" id="why3-long" data-i18n="why3_long">Schenken Sie Sicherheit: Finder werfen Schlüssel anonym in den Briefkasten oder kontaktieren den Besitzer direkt über unser System. In beiden Fällen bleibt die Privatsphäre zu 100 % gewahrt. Wir bleiben mit unseren Kunden in engem Kontakt, pflegen eine langfristige Beziehung und gehen verantwortungsvoll mit ihren Daten um. Transparenz ist uns wichtig – unrealistische Versprechen wie lebenslanger Gratisservice gehören nicht zu unserem Geschäftsverständnis.</p>
@@ -673,7 +146,7 @@
     <div class="prod-slides">
 
       <div class="prod-slide active" data-slider="prod">
-        <div class="prod-img-box"><img src="Images/Produkt/keyrefinder-schluesselanhaenger-fundsystem.png" alt="KeyRefinder® Schlüsselanhänger mit Fundsystem" /></div>
+        <div class="prod-img-box"><img src="assets/images/products/keyrefinder-schluesselanhaenger-fundsystem.png" alt="KeyRefinder® Schlüsselanhänger mit Fundsystem" /></div>
         <div class="prod-info">
           <h2 data-i18n="prod1_h2">KeyRefinder® – Der Erfolgreichste der Schweiz</h2>
           <p data-i18n="prod1_p">Seit über 30 Jahren vertrauen renommierte Unternehmen auf das effizienteste Schlüsselfundsystem der Schweiz. So klein er ist, so gross ist seine Wirkung: Ein Werbegeschenk, das täglich Kontakte generiert und Ihre Marke fest im persönlichen Umfeld Ihrer Kunden verankert.</p>
@@ -681,7 +154,7 @@
       </div>
 
       <div class="prod-slide" data-slider="prod">
-        <div class="prod-img-box"><img src="Images/Produkt/keyshopper-2in1-einkaufswagen-fundsystem.png" alt="KeyShopper® 2-in-1 Einkaufswagen und Fundsystem" /></div>
+        <div class="prod-img-box"><img src="assets/images/products/keyshopper-2in1-einkaufswagen-fundsystem.png" alt="KeyShopper® 2-in-1 Einkaufswagen und Fundsystem" /></div>
         <div class="prod-info">
           <h2 data-i18n="prod2_h2">KeyShopper® – Die geniale 2-in-1 Lösung</h2>
           <p data-i18n="prod2_p">Warum sich für nur eine Funktion entscheiden? Der KeyShopper® kombiniert den bewährten Fundservice mit einer praktischen Einkaufswagen-Entriegelung. Ein unverzichtbarer Alltagshelfer, den Ihre Kunden garantiert nie wieder vom Schlüsselbund nehmen.</p>
@@ -689,7 +162,7 @@
       </div>
 
       <div class="prod-slide" data-slider="prod">
-        <div class="prod-img-box"><img src="Images/Produkt/keyrefinder-individuelle-formen-farben-branding.jpg" alt="KeyRefinder® individuelle Formen und Farben Branding" /></div>
+        <div class="prod-img-box"><img src="assets/images/products/keyrefinder-individuelle-formen-farben-branding.jpg" alt="KeyRefinder® individuelle Formen und Farben Branding" /></div>
         <div class="prod-info">
           <h2 data-i18n="prod3_h2">Individuelle Formen &amp; Farben – Branding ohne Grenzen</h2>
           <p data-i18n="prod3_p">Wir bringen Ihre Marke in Bestform. Von der massgeschneiderten Sonderform Ihres Logos bis hin zum hochauflösenden Fotodruck setzen wir Ihre Corporate Identity präzise um. Wir machen Ihr Branding zum haptischen Erlebnis, das perfekt zu Ihrer Designsprache passt.</p>
@@ -697,7 +170,7 @@
       </div>
 
       <div class="prod-slide" data-slider="prod">
-        <div class="prod-img-box"><img src="Images/Produkt/keyrefinder-oberflaechen-glaenzend-matt.png" alt="KeyRefinder® Oberflächen glänzend und matt" /></div>
+        <div class="prod-img-box"><img src="assets/images/products/keyrefinder-oberflaechen-glaenzend-matt.png" alt="KeyRefinder® Oberflächen glänzend und matt" /></div>
         <div class="prod-info">
           <h2 data-i18n="prod4_h2">Edle Oberflächen – Glänzend oder Matt</h2>
           <p data-i18n="prod4_p">Details machen den Unterschied in der Markenwahrnehmung. Verleihen Sie Ihren Produkten eine exklusive Note: Wählen Sie zwischen einer farblos glänzenden Oberfläche für brillante Farbtiefe oder einem edlen Matt-Finish für eine moderne, technische Optik.</p>
@@ -705,7 +178,7 @@
       </div>
 
       <div class="prod-slide" data-slider="prod">
-        <div class="prod-img-box"><img src="Images/Produkt/keyrefinder-spezialverpackung-geschenkverpackung.png" alt="KeyRefinder® Spezialverpackung Geschenkverpackung" /></div>
+        <div class="prod-img-box"><img src="assets/images/products/keyrefinder-spezialverpackung-geschenkverpackung.png" alt="KeyRefinder® Spezialverpackung Geschenkverpackung" /></div>
         <div class="prod-info">
           <h2 data-i18n="prod5_h2">Spezialverpackungen – Der perfekte erste Eindruck</h2>
           <p data-i18n="prod5_p">Ein hochwertiges Geschenk verdient einen glanzvollen Auftritt. Auf Wunsch realisieren wir individuelle Verpackungslösungen, die exakt auf Ihr Branding abgestimmt sind. So wird bereits das Auspacken zum exklusiven Markenerlebnis für Ihre Kunden.</p>
@@ -713,7 +186,7 @@
       </div>
 
       <div class="prod-slide" data-slider="prod">
-        <div class="prod-img-box"><img src="Images/Produkt/keyrefinder-info-folder-werbemittel.png" alt="KeyRefinder® Info-Folder Werbemittel" /></div>
+        <div class="prod-img-box"><img src="assets/images/products/keyrefinder-info-folder-werbemittel.png" alt="KeyRefinder® Info-Folder Werbemittel" /></div>
         <div class="prod-info">
           <h2 data-i18n="prod6_h2">Info-Folder – Botschaften mit Format</h2>
           <p data-i18n="prod6_p">Vermitteln Sie den Mehrwert Ihres Geschenks mit Stil. Wir erstellen massgeschneiderte Info-Folder in Spezialformaten, die das KeyRefinder-System verständlich erklären und gleichzeitig ausreichend Platz für Ihre individuelle Werbebotschaft bieten.</p>
@@ -733,9 +206,9 @@
       <div class="off-model" data-idx="0">
         <div class="off-img-card" onclick="selectModel(0)">
           <div class="off-carousel" id="ofc-0">
-            <img src="Images/Formenblatt KeyRefinder_02 copy.jpg" alt="Keyrefinder® 1" />
-            <img src="Images/Formenblatt KeyRefinder_02 copy.jpg" alt="Keyrefinder® 2" />
-            <img src="Images/Formenblatt KeyRefinder_02 copy.jpg" alt="Keyrefinder® 3" />
+            <img src="assets/images/ui/keyrefinder-form.jpg" alt="Keyrefinder® 1" />
+            <img src="assets/images/ui/keyrefinder-form.jpg" alt="Keyrefinder® 2" />
+            <img src="assets/images/ui/keyrefinder-form.jpg" alt="Keyrefinder® 3" />
           </div>
           <button class="off-arrow off-arrow-prev" onclick="offPrev(event,0)"><span class="material-symbols-outlined">chevron_left</span></button>
           <button class="off-arrow off-arrow-next" onclick="offNext(event,0)"><span class="material-symbols-outlined">chevron_right</span></button>
@@ -744,9 +217,9 @@
       <div class="off-model" data-idx="1">
         <div class="off-img-card" onclick="selectModel(1)">
           <div class="off-carousel" id="ofc-1">
-            <img src="Images/Keyshopper web copy.jpg" alt="KeyShopper® 1" />
-            <img src="Images/Keyshopper web copy.jpg" alt="KeyShopper® 2" />
-            <img src="Images/Keyshopper web copy.jpg" alt="KeyShopper® 3" />
+            <img src="assets/images/ui/keyshopper-form.jpg" alt="KeyShopper® 1" />
+            <img src="assets/images/ui/keyshopper-form.jpg" alt="KeyShopper® 2" />
+            <img src="assets/images/ui/keyshopper-form.jpg" alt="KeyShopper® 3" />
           </div>
           <button class="off-arrow off-arrow-prev" onclick="offPrev(event,1)"><span class="material-symbols-outlined">chevron_left</span></button>
           <button class="off-arrow off-arrow-next" onclick="offNext(event,1)"><span class="material-symbols-outlined">chevron_right</span></button>
@@ -755,9 +228,9 @@
       <div class="off-model" data-idx="2">
         <div class="off-img-card" onclick="selectModel(2)">
           <div class="off-carousel" id="ofc-2">
-            <img src="Images/Bottle copy.jpg" alt="Eigene Form 1" />
-            <img src="Images/Bottle copy.jpg" alt="Eigene Form 2" />
-            <img src="Images/Bottle copy.jpg" alt="Eigene Form 3" />
+            <img src="assets/images/ui/custom-form.jpg" alt="Eigene Form 1" />
+            <img src="assets/images/ui/custom-form.jpg" alt="Eigene Form 2" />
+            <img src="assets/images/ui/custom-form.jpg" alt="Eigene Form 3" />
           </div>
           <button class="off-arrow off-arrow-prev" onclick="offPrev(event,2)"><span class="material-symbols-outlined">chevron_left</span></button>
           <button class="off-arrow off-arrow-next" onclick="offNext(event,2)"><span class="material-symbols-outlined">chevron_right</span></button>
@@ -766,7 +239,6 @@
     </div>
     <div class="offerte-config fade-up" id="offerte-config" style="transition-delay:0.22s">
 
-      <!-- Steps wrapper (animates) -->
       <div class="offerte-steps-outer">
 
         <!-- Step 1 -->
@@ -855,7 +327,6 @@
 
       </div><!-- /offerte-steps-outer -->
 
-      <!-- Persistent footer: error + dots + button -->
       <p class="offerte-error" id="offerte-error" data-i18n="offerte_error">Bitte wählen Sie ein Modell und eine Stückzahl.</p>
       <div class="off-dots">
         <div class="off-dot active" id="step-dot-1" onclick="dotClick(1)" style="cursor:pointer"></div>
@@ -874,8 +345,9 @@
     <button class="ref-nav prev" onclick="changeSlide('ref',-1)"><span class="material-symbols-outlined">chevron_left</span></button>
     <button class="ref-nav next" onclick="changeSlide('ref',1)"><span class="material-symbols-outlined">chevron_right</span></button>
     <div class="ref-slides-container">
+
     <div class="ref-slide active" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Semas.jpg" alt="SEMAS IT AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Semas.jpg" alt="SEMAS IT AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">SEMAS IT AG, Zug</div>
@@ -885,7 +357,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Pasturs-Voluntaris.jpg" alt="Pasturs Voluntaris" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Pasturs-Voluntaris.jpg" alt="Pasturs Voluntaris" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">Pasturs Voluntaris</div>
@@ -895,7 +367,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Elvia-by-Allianz.jpg" alt="ELVIA by Allianz" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Elvia-by-Allianz.jpg" alt="ELVIA by Allianz" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">ELVIA by Allianz</div>
@@ -905,7 +377,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/electrin.jpg" alt="Electrin AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/electrin.jpg" alt="Electrin AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper®</div>
         <div class="ref-company">Electrin AG, Falera</div>
@@ -915,7 +387,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Zuercher-Holzbau.jpg" alt="Zürcher Holzbau AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Zuercher-Holzbau.jpg" alt="Zürcher Holzbau AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">Zürcher Holzbau AG</div>
@@ -925,7 +397,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/pro_natura_ok1.jpg" alt="Pro Natura" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/pro_natura_ok1.jpg" alt="Pro Natura" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">Pro Natura, Basel</div>
@@ -935,7 +407,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/SB-Saanen-Bank.jpg" alt="SB Saanen Bank AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/SB-Saanen-Bank.jpg" alt="SB Saanen Bank AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">SB Saanen Bank AG</div>
@@ -945,7 +417,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/terredeshommes.jpg" alt="terre des hommes Schweiz" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/terredeshommes.jpg" alt="terre des hommes Schweiz" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">terre des hommes Schweiz, Basel</div>
@@ -965,7 +437,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/toppharm-Apotheke-Dr-Rebhan.jpg" alt="Apotheke Dr. Rebhan AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/toppharm-Apotheke-Dr-Rebhan.jpg" alt="Apotheke Dr. Rebhan AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper® duo</div>
         <div class="ref-company">Apotheke &amp; Parfumerie Dr. Rebhan AG</div>
@@ -975,7 +447,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Mobimo-Aeschbach-Quartier-Aarau-Areal-Mattenhof.jpg" alt="Mobimo Management AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Mobimo-Aeschbach-Quartier-Aarau-Areal-Mattenhof.jpg" alt="Mobimo Management AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper®</div>
         <div class="ref-company">Mobimo Management AG, Küsnacht</div>
@@ -985,7 +457,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/allianz2.jpg" alt="Allianz Suisse" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/allianz2.jpg" alt="Allianz Suisse" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">Allianz Suisse Versicherungs-Gesellschaft AG</div>
@@ -995,7 +467,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/brunni4.jpg" alt="Brunni-Bahnen AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/brunni4.jpg" alt="Brunni-Bahnen AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper® duo</div>
         <div class="ref-company">Brunni-Bahnen AG, Engelberg</div>
@@ -1005,7 +477,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/sea.jpg" alt="SEA Schliess-Systeme AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/sea.jpg" alt="SEA Schliess-Systeme AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper®</div>
         <div class="ref-company">SEA Schliess-Systeme AG, Zollikofen</div>
@@ -1015,7 +487,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/provelo.jpg" alt="Pro Velo Schweiz" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/provelo.jpg" alt="Pro Velo Schweiz" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">Pro Velo Schweiz, Winterthur</div>
@@ -1025,7 +497,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/mynab_ok.jpg" alt="Neue Aargauer Bank" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/mynab_ok.jpg" alt="Neue Aargauer Bank" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder® / KeyShopper®</div>
         <div class="ref-company">Neue Aargauer Bank, Aarau</div>
@@ -1035,7 +507,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/AS-infotrack.jpg" alt="AS infotrack AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/AS-infotrack.jpg" alt="AS infotrack AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper® duo</div>
         <div class="ref-company">AS infotrack AG, Unterkulm</div>
@@ -1045,7 +517,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/HEV1.jpg" alt="HEV Verwaltungs AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/HEV1.jpg" alt="HEV Verwaltungs AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">HEV Verwaltungs AG, St. Gallen</div>
@@ -1055,7 +527,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Streamline.jpg" alt="Streamline AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Streamline.jpg" alt="Streamline AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper®</div>
         <div class="ref-company">Streamline AG</div>
@@ -1065,7 +537,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/NW-Arbeitssicherheit-Bau-2015-20213.jpg" alt="NW Arbeitssicherheit Bau GmbH" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/NW-Arbeitssicherheit-Bau-2015-20213.jpg" alt="NW Arbeitssicherheit Bau GmbH" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">NW Arbeitssicherheit Bau GmbH</div>
@@ -1075,7 +547,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/belcolor.jpg" alt="Belcolor AG Flooring" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/belcolor.jpg" alt="Belcolor AG Flooring" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper®</div>
         <div class="ref-company">Belcolor AG Flooring, St. Gallen</div>
@@ -1085,7 +557,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/tcs2.jpg" alt="Touring Club Schweiz" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/tcs2.jpg" alt="Touring Club Schweiz" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper®</div>
         <div class="ref-company">Touring Club Schweiz, Schönbühl</div>
@@ -1095,7 +567,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/vcs2.jpg" alt="VCS Verkehrs-Club der Schweiz" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/vcs2.jpg" alt="VCS Verkehrs-Club der Schweiz" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">VCS Verkehrs-Club der Schweiz, Bern</div>
@@ -1105,7 +577,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/GWG.jpg" alt="GWG Gemeinnützige Wohnbaugenossenschaft Winterthur" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/GWG.jpg" alt="GWG Gemeinnützige Wohnbaugenossenschaft Winterthur" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper® duo</div>
         <div class="ref-company">GWG Gemeinnützige Wohnbaugenossenschaft Winterthur</div>
@@ -1113,7 +585,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Zentrum-Regensdorf.jpg" alt="Zentrum Regensdorf" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Zentrum-Regensdorf.jpg" alt="Zentrum Regensdorf" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper® duo</div>
         <div class="ref-company">Zentrum Regensdorf, Regensdorf</div>
@@ -1123,7 +595,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Crealengo.jpg" alt="CreaLengo GmbH" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Crealengo.jpg" alt="CreaLengo GmbH" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper®</div>
         <div class="ref-company">CreaLengo GmbH, Dulliken</div>
@@ -1133,7 +605,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Tremegisto1.jpg" alt="Tremegisto Consulting" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Tremegisto1.jpg" alt="Tremegisto Consulting" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">Tremegisto Consulting, Zürich</div>
@@ -1143,7 +615,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Binzegger-Auto-AG-Centralgarage-Binzegger-Auto-AG.jpg" alt="Binzegger Auto AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Binzegger-Auto-AG-Centralgarage-Binzegger-Auto-AG.jpg" alt="Binzegger Auto AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper® duo</div>
         <div class="ref-company">Binzegger Auto AG, Cham</div>
@@ -1153,7 +625,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/I-love-my-Job1.jpg" alt="Imholz Autohaus AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/I-love-my-Job1.jpg" alt="Imholz Autohaus AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">Imholz Autohaus AG, Cham</div>
@@ -1163,7 +635,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/ABS-Personal-KSKR.jpg" alt="ABS Personalberatung AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/ABS-Personal-KSKR.jpg" alt="ABS Personalberatung AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">ABS Personalberatung AG, Zug</div>
@@ -1173,7 +645,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Alltron1.jpg" alt="Alltron AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Alltron1.jpg" alt="Alltron AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">Alltron AG</div>
@@ -1183,7 +655,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/helsecon_neu.jpg" alt="Helsecon GmbH" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/helsecon_neu.jpg" alt="Helsecon GmbH" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper®</div>
         <div class="ref-company">Helsecon GmbH, Thal</div>
@@ -1193,7 +665,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/relesta.jpg" alt="Relesta AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/relesta.jpg" alt="Relesta AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">Relesta AG, Zuzwil</div>
@@ -1203,7 +675,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/proparis4.jpg" alt="proparis Vorsorge-Stiftung Schweiz" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/proparis4.jpg" alt="proparis Vorsorge-Stiftung Schweiz" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">proparis Vorsorge-Stiftung Schweiz</div>
@@ -1213,7 +685,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Wendolina21.jpg" alt="Wendolina" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Wendolina21.jpg" alt="Wendolina" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper®</div>
         <div class="ref-company">Wendolina</div>
@@ -1223,7 +695,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/ahg2.jpg" alt="AHG Cars" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/ahg2.jpg" alt="AHG Cars" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder® / KeyShopper®</div>
         <div class="ref-company">AHG Cars, Villars-sur-Glâne</div>
@@ -1233,7 +705,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/auto_scheidegger.jpg" alt="Auto Scheidegger AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/auto_scheidegger.jpg" alt="Auto Scheidegger AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">Auto Scheidegger AG Flamatt</div>
@@ -1243,7 +715,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/kimo2.jpg" alt="KIMO AG Immobilien" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/kimo2.jpg" alt="KIMO AG Immobilien" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper® duo</div>
         <div class="ref-company">KIMO AG Immobilien, St. Gallen</div>
@@ -1253,7 +725,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/ubs.jpg" alt="UBS White Labelling Solutions" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/ubs.jpg" alt="UBS White Labelling Solutions" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper® duo</div>
         <div class="ref-company">UBS White Labelling Solutions</div>
@@ -1261,7 +733,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/grosspeter_ok.jpg" alt="Grosspeter AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/grosspeter_ok.jpg" alt="Grosspeter AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">Grosspeter AG, Muttenz</div>
@@ -1271,7 +743,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/homenhancement.jpg" alt="Homenhancement" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/homenhancement.jpg" alt="Homenhancement" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">Homenhancement</div>
@@ -1279,7 +751,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Dr-Castelberg-Optometry.jpg" alt="Dr. Castelberg Optometry AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Dr-Castelberg-Optometry.jpg" alt="Dr. Castelberg Optometry AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">Dr. Castelberg Optometry AG, Landquart</div>
@@ -1289,7 +761,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/axians2.jpg" alt="Axians GNS AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/axians2.jpg" alt="Axians GNS AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">Axians GNS AG, Winterthur</div>
@@ -1299,7 +771,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/stettler.jpg" alt="Stettler Consulting AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/stettler.jpg" alt="Stettler Consulting AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper®</div>
         <div class="ref-company">Stettler Consulting AG</div>
@@ -1309,7 +781,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/garagekaufmann.jpg" alt="Garage Kaufmann AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/garagekaufmann.jpg" alt="Garage Kaufmann AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">Garage Kaufmann AG, Berneck</div>
@@ -1317,7 +789,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/egk.jpg" alt="EGK Gesundheitskasse" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/egk.jpg" alt="EGK Gesundheitskasse" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">EGK Gesundheitskasse, Laufen BL</div>
@@ -1327,7 +799,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/swica.jpg" alt="SWICA Krankenversicherung AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/swica.jpg" alt="SWICA Krankenversicherung AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">SWICA Krankenversicherung AG</div>
@@ -1335,7 +807,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/sta.jpg" alt="STA Personalpartner" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/sta.jpg" alt="STA Personalpartner" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper®</div>
         <div class="ref-company">STA Personalpartner</div>
@@ -1345,7 +817,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Stenz.jpg" alt="Planungs- und Baubüro Stenz AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Stenz.jpg" alt="Planungs- und Baubüro Stenz AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper®</div>
         <div class="ref-company">Planungs- und Baubüro Stenz AG, Erschwil</div>
@@ -1355,7 +827,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Andre_Roth_AG.jpg" alt="André Roth AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Andre_Roth_AG.jpg" alt="André Roth AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">André Roth AG, Baden</div>
@@ -1365,7 +837,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/om-Computer-Polizei-Zivilschutz.jpg" alt="om computer" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/om-Computer-Polizei-Zivilschutz.jpg" alt="om computer" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper®</div>
         <div class="ref-company">om computer, Cham</div>
@@ -1375,7 +847,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/mobility.jpg" alt="Mobility Genossenschaft" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/mobility.jpg" alt="Mobility Genossenschaft" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">Mobility Genossenschaft, Luzern</div>
@@ -1385,7 +857,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/calag.jpg" alt="Calag Carosserie Langenthal AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/calag.jpg" alt="Calag Carosserie Langenthal AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder® / KeyShopper®</div>
         <div class="ref-company">Calag Carosserie Langenthal AG</div>
@@ -1395,7 +867,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/immobilitas2.jpg" alt="Immobilitas GmbH" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/immobilitas2.jpg" alt="Immobilitas GmbH" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder® / KeyShopper®</div>
         <div class="ref-company">Immobilitas GmbH, Altendorf</div>
@@ -1405,7 +877,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Kaffeewelt-dae-Kafimaa2.jpg" alt="Kaffeewelt" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Kaffeewelt-dae-Kafimaa2.jpg" alt="Kaffeewelt" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper®</div>
         <div class="ref-company">Kaffeewelt</div>
@@ -1413,7 +885,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/L-K-Elektro-KR-KS2.jpg" alt="L&amp;K Elektro GmbH" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/L-K-Elektro-KR-KS2.jpg" alt="L&amp;K Elektro GmbH" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper®</div>
         <div class="ref-company">L&amp;K Elektro GmbH</div>
@@ -1423,7 +895,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Sterillium-50-Protect-Care.jpg" alt="IVF Hartmann AG" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Sterillium-50-Protect-Care.jpg" alt="IVF Hartmann AG" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper®</div>
         <div class="ref-company">IVF Hartmann AG, Neuhausen am Rheinfall</div>
@@ -1433,7 +905,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/croce_rossa.jpg" alt="Schweizerisches Rotes Kreuz" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/croce_rossa.jpg" alt="Schweizerisches Rotes Kreuz" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyRefinder®</div>
         <div class="ref-company">Schweizerisches Rotes Kreuz, Bern</div>
@@ -1443,7 +915,7 @@
     </div>
 
     <div class="ref-slide" data-slider="ref">
-      <div class="ref-img-box"><img src="Images/referenzen/Raurach-Immobilien.jpg" alt="Raurach Immobilien" /></div>
+      <div class="ref-img-box"><img src="assets/images/referenzen/Raurach-Immobilien.jpg" alt="Raurach Immobilien" /></div>
       <div class="ref-content">
         <div class="ref-product">KeyShopper® duo</div>
         <div class="ref-company">Raurach Immobilien</div>
@@ -1452,7 +924,7 @@
       </div>
     </div>
 
-    </div><!-- end ref-slides-container -->
+    </div><!-- /ref-slides-container -->
   </div>
   <div class="ref-dots" id="ref-dots"></div>
 </section>
@@ -1461,7 +933,7 @@
 <footer id="privatkunden">
   <div class="footer-inner">
     <div class="logo">
-      <img src="Images/logo_keyrefinder.svg fill.png" alt="KeyRefinder® Business Clients" />
+      <img src="assets/images/logo.png" alt="KeyRefinder® Business Clients" />
     </div>
     <nav class="footer-nav">
       <a href="#produkte" data-i18n="footer_produkte">Produkte</a>
@@ -1474,432 +946,8 @@
   </div>
 </footer>
 
-<script>
-  /* ── Random hero header ── */
-  const heroImages = ['Images/Header.new.png', 'Images/header-kf2026.jpg'];
-  const lastHero = localStorage.getItem('lastHero');
-  const nextHero = heroImages.find(img => img !== lastHero) || heroImages[0];
-  localStorage.setItem('lastHero', nextHero);
-  document.getElementById('home').style.backgroundImage = `url('${nextHero}')`;
-
-  /* ── Mobile menu ── */
-  function toggleMenu() {
-    const nav = document.getElementById('mobile-nav');
-    const btn = document.getElementById('hamburger');
-    nav.classList.toggle('open');
-    btn.classList.toggle('open');
-  }
-  function closeMenu() {
-    document.getElementById('mobile-nav').classList.remove('open');
-    document.getElementById('hamburger').classList.remove('open');
-  }
-
-  /* ── Language dropdown ── */
-  let currentLang = 'DE';
-  function toggleLang() {
-    document.getElementById('lang-dropdown').classList.toggle('open');
-  }
-  function setLang(lang) {
-    currentLang = lang;
-    document.getElementById('lang-current').textContent = lang;
-    document.querySelectorAll('.lang-menu button').forEach(b => {
-      b.classList.toggle('active', b.textContent === lang);
-    });
-    document.getElementById('lang-dropdown').classList.remove('open');
-    localStorage.setItem('krf_lang', lang);
-    if (window.applyTranslations) applyTranslations(lang);
-  }
-  // Close dropdown when clicking outside
-  document.addEventListener('click', e => {
-    if (!document.getElementById('lang-dropdown').contains(e.target)) {
-      document.getElementById('lang-dropdown').classList.remove('open');
-    }
-  });
-
-  /* ── Offerte: image carousels ── */
-  const offCState = [0, 0, 0];
-
-  function offCarouselGo(modelIdx, slideIdx) {
-    const carousel = document.getElementById('ofc-' + modelIdx);
-    const dots = document.querySelectorAll('#ofd-' + modelIdx + ' .off-cdot');
-    carousel.style.transform = 'translateX(-' + (slideIdx * 100) + '%)';
-    dots.forEach((d, i) => d.classList.toggle('active', i === slideIdx));
-    offCState[modelIdx] = slideIdx;
-  }
-
-  function offPrev(e, m) { e.stopPropagation(); offCarouselGo(m, (offCState[m] - 1 + 3) % 3); }
-  function offNext(e, m) { e.stopPropagation(); offCarouselGo(m, (offCState[m] + 1) % 3); }
-  function offDot(e, m, i) { e.stopPropagation(); offCarouselGo(m, i); }
-
-  /* ── Infinite loop carousel: clone first slide at end ── */
-  document.querySelectorAll('.off-carousel').forEach(carousel => {
-    const clone = carousel.children[0].cloneNode(true);
-    carousel.appendChild(clone);
-    // now 4 children: 0,1,2,clone(=0)
-  });
-
-  /* ── Auto-scroll on hover (always forward, seamless) ── */
-  const hoverTimers = {};
-  document.querySelectorAll('.off-model').forEach(card => {
-    const m = parseInt(card.dataset.idx);
-    card.addEventListener('mouseenter', () => {
-      hoverTimers[m] = setInterval(() => {
-        const current = offCState[m];
-        const nextPhysical = current + 1; // always forward
-
-        if (nextPhysical === 3) {
-          // animate to clone at position 3
-          const carousel = document.getElementById('ofc-' + m);
-          carousel.style.transform = 'translateX(-300%)';
-          offCState[m] = 3;
-          // after transition, instantly reset to position 0
-          setTimeout(() => {
-            carousel.style.transition = 'none';
-            carousel.style.transform = 'translateX(0%)';
-            void carousel.offsetWidth; // force reflow
-            carousel.style.transition = '';
-            offCState[m] = 0;
-          }, 460);
-        } else {
-          offCarouselGo(m, nextPhysical);
-        }
-      }, 750);
-    });
-    card.addEventListener('mouseleave', () => {
-      clearInterval(hoverTimers[m]);
-    });
-  });
-
-  /* ── Offerte: sync image cards + model buttons ── */
-  function selectModel(idx) {
-    document.querySelectorAll('.off-model').forEach((el, i) =>
-      el.classList.toggle('active', i === idx));
-    document.querySelectorAll('.model-grid .sel-btn').forEach((el, i) =>
-      el.classList.toggle('active', i === idx));
-    document.getElementById('offerte-error').classList.remove('visible');
-  }
-
-  function selectQty(btn) {
-    btn.closest('.qty-grid').querySelectorAll('.qty-btn')
-      .forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('offerte-error').classList.remove('visible');
-  }
-
-  function selectCustomQty() {
-    document.querySelectorAll('.qty-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('qty-custom-wrap').classList.add('active');
-    document.getElementById('offerte-error').classList.remove('visible');
-  }
-
-  /* ── Offerte step navigation ── */
-  let offerteStep = 1;
-
-  function offerteBtnClick() {
-    if (offerteStep === 1) goToStep2();
-    else submitOfferte();
-  }
-
-  function goToStep2() {
-    const modelSelected = document.querySelector('.off-model.active');
-    const qtySelected   = document.querySelector('.qty-btn.active');
-    const customInput   = document.getElementById('qty-custom-input');
-    const isCustom      = qtySelected?.id === 'qty-custom-wrap';
-    const error = document.getElementById('offerte-error');
-    if (!modelSelected || !qtySelected || (isCustom && !customInput.value)) { error.classList.add('visible'); return; }
-    error.classList.remove('visible');
-
-    const modelName = document.querySelector('.model-grid .sel-btn.active')?.textContent || '';
-    const qtyNum    = isCustom ? customInput.value : (document.querySelector('.qty-btn.active .qty-num')?.textContent || '');
-    const qtyPrice  = isCustom ? 'Preis auf Anfrage' : (document.querySelector('.qty-btn.active .qty-price')?.textContent || '');
-    document.getElementById('step2-summary').innerHTML =
-      `<strong>${modelName}</strong> &nbsp;·&nbsp; <strong>${qtyNum} Stk</strong> &nbsp;·&nbsp; ${qtyPrice}`;
-
-    const s1 = document.getElementById('offerte-step1');
-    const s2 = document.getElementById('offerte-step2');
-    s1.style.display = 'none';
-    s2.style.display = 'block';
-    s2.classList.remove('step-anim-left', 'step-anim-right');
-    void s2.offsetWidth; // reflow
-    s2.classList.add('step-anim-right');
-
-    document.getElementById('step-dot-1').classList.remove('active');
-    document.getElementById('step-dot-2').classList.add('active');
-    document.getElementById('offerte-main-btn').textContent = 'Absenden';
-    document.querySelector('.offerte-images').classList.add('locked');
-    offerteStep = 2;
-  }
-
-  function goBack() {
-    const s1 = document.getElementById('offerte-step1');
-    const s2 = document.getElementById('offerte-step2');
-    s2.style.display = 'none';
-    s1.style.display = 'block';
-    s1.classList.remove('step-anim-left', 'step-anim-right');
-    void s1.offsetWidth;
-    s1.classList.add('step-anim-left');
-
-    document.getElementById('step-dot-2').classList.remove('active');
-    document.getElementById('step-dot-1').classList.add('active');
-    document.getElementById('offerte-main-btn').textContent = 'Weiter';
-    document.querySelector('.offerte-images').classList.remove('locked');
-    document.getElementById('offerte-error').classList.remove('visible');
-    offerteStep = 1;
-  }
-
-  async function submitOfferte() {
-    const fields = [
-      { inp: 'inp-vorname',  err: 'err-vorname' },
-      { inp: 'inp-nachname', err: 'err-nachname' },
-      { inp: 'inp-firma',    err: 'err-firma' },
-      { inp: 'inp-email',    err: 'err-email' },
-      { inp: 'inp-telefon',  err: 'err-telefon' },
-    ];
-    let valid = true;
-    fields.forEach(({ inp, err }) => {
-      const el = document.getElementById(inp);
-      const errEl = document.getElementById(err);
-      if (!el.value.trim()) {
-        el.classList.add('invalid');
-        errEl.classList.add('visible');
-        valid = false;
-      }
-    });
-    if (!valid) return;
-
-    // Collect model + qty from step 1 selections
-    const modelName = document.querySelector('.model-grid .sel-btn.active')?.textContent?.trim() || '';
-    const qtySelected = document.querySelector('.qty-btn.active');
-    const isCustom = qtySelected?.id === 'qty-custom-wrap';
-    const qtyNum = isCustom
-      ? document.getElementById('qty-custom-input').value
-      : (document.querySelector('.qty-btn.active .qty-num')?.textContent?.trim() || '');
-
-    const formData = new FormData();
-    formData.append('Vorname',   document.getElementById('inp-vorname').value.trim());
-    formData.append('Nachname',  document.getElementById('inp-nachname').value.trim());
-    formData.append('Firma',     document.getElementById('inp-firma').value.trim());
-    formData.append('E-Mail',    document.getElementById('inp-email').value.trim());
-    formData.append('Telefon',   document.getElementById('inp-telefon').value.trim());
-    formData.append('Modell',    modelName);
-    formData.append('Stückzahl', qtyNum ? qtyNum + ' Stk' : '');
-    const nachricht = document.getElementById('inp-nachricht')?.value?.trim();
-    if (nachricht) formData.append('Nachricht', nachricht);
-    const fileInput = document.getElementById('file-upload');
-    if (fileInput && fileInput.files.length) formData.append('Anhang', fileInput.files[0]);
-
-    const btn = document.getElementById('offerte-main-btn');
-    btn.disabled = true;
-    btn.textContent = 'Wird gesendet…';
-
-    try {
-      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        document.getElementById('offerte-config').innerHTML =
-          `<div style="text-align:center;padding:60px 24px;">
-             <span class="material-symbols-outlined" style="font-size:64px;color:var(--red);font-variation-settings:'FILL' 0,'wght' 100,'GRAD' 0,'opsz' 48">check_circle</span>
-             <h3 style="margin:20px 0 10px;font-size:1.4rem;font-weight:500;">Vielen Dank!</h3>
-             <p style="color:#666;line-height:1.6;">Ihre Anfrage wurde erfolgreich gesendet.<br>Wir melden uns so bald wie möglich bei Ihnen.</p>
-           </div>`;
-      } else {
-        btn.disabled = false;
-        btn.textContent = 'Absenden';
-        alert('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.');
-      }
-    } catch (e) {
-      btn.disabled = false;
-      btn.textContent = 'Absenden';
-      alert('Es ist ein Fehler aufgetreten. Bitte prüfen Sie Ihre Internetverbindung.');
-    }
-  }
-
-  function clearErr(inpId, errId) {
-    document.getElementById(inpId).classList.remove('invalid');
-    document.getElementById(errId).classList.remove('visible');
-  }
-
-  function dotClick(n) {
-    if (n === 1 && offerteStep === 2) goBack();
-    else if (n === 2 && offerteStep === 1) goToStep2();
-  }
-
-  function updateFileName(input) {
-    const display = document.getElementById('file-name-display');
-    display.textContent = input.files.length ? input.files[0].name : 'Datei auswählen…';
-  }
-
-  /* ── Expand/collapse why cards ── */
-  function toggleLong(id) {
-    const ids = ['why1', 'why2', 'why3'];
-    const clickedLong = document.getElementById(id + '-long');
-    const wasOpen = clickedLong.classList.contains('visible');
-    // close all
-    ids.forEach(i => {
-      document.getElementById(i + '-long').classList.remove('visible');
-      document.getElementById(i + '-btn').classList.remove('open');
-    });
-    // open clicked only if it was closed before
-    if (!wasOpen) {
-      clickedLong.classList.add('visible');
-      document.getElementById(id + '-btn').classList.add('open');
-    }
-  }
-
-  /* ── Slider engine ── */
-  const sliders = {};
-  const REF_WIN = 7, DOT_STEP = 13; // 7px dot + 6px gap
-
-  function initSlider(name) {
-    const slides = [...document.querySelectorAll(`[data-slider="${name}"]`)];
-    const dotsEl = document.getElementById(`${name}-dots`);
-    slides.forEach(s => s.classList.remove('active'));
-    slides[0].classList.add('active');
-    sliders[name] = { slides, current: 0, strip: null };
-
-    if (!dotsEl) return;
-    const total = slides.length;
-
-    if (name === 'ref' && total > REF_WIN) {
-      const win = document.createElement('div');
-      win.className = 'ref-dots-window';
-      const track = document.createElement('div');
-      track.className = 'ref-dots-track';
-      slides.forEach((_, i) => {
-        const d = document.createElement('button');
-        d.className = 'dot' + (i === 0 ? ' active' : '');
-        d.setAttribute('aria-label', 'Slide ' + (i + 1));
-        d.onclick = () => goTo(name, i);
-        track.appendChild(d);
-      });
-      win.appendChild(track);
-      dotsEl.appendChild(win);
-      sliders[name].strip = track;
-    } else {
-      // Simple fixed dots for prod
-      slides.forEach((_, i) => {
-        const d = document.createElement('button');
-        d.className = 'dot' + (i === 0 ? ' active' : '');
-        d.setAttribute('aria-label', 'Slide ' + (i + 1));
-        d.onclick = () => goTo(name, i);
-        dotsEl.appendChild(d);
-      });
-    }
-    updateDots(name);
-  }
-
-  function updateDots(name) {
-    const s = sliders[name];
-    const dotsEl = document.getElementById(`${name}-dots`);
-    if (!dotsEl) return;
-    const cur = s.current;
-
-    if (name === 'ref' && s.strip) {
-      const dots = [...s.strip.querySelectorAll('.dot')];
-      const total = dots.length;
-      dots.forEach((d, i) => d.classList.toggle('active', i === cur));
-      // Slide track so active dot stays centered in the 7-dot window
-      let winStart = cur - Math.floor(REF_WIN / 2);
-      winStart = Math.max(0, Math.min(winStart, total - REF_WIN));
-      s.strip.style.transform = `translateX(${-(winStart * DOT_STEP)}px)`;
-    } else {
-      dotsEl.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === cur));
-    }
-  }
-
-  function goTo(name, idx) {
-    const s = sliders[name];
-    const total = s.slides.length;
-    const prev = s.current;
-    const next = (idx + total) % total;
-    if (prev === next) return;
-
-    const goingRight = (idx - prev + total) % total <= total / 2;
-    const outClass = goingRight ? 'slide-out-left' : 'slide-out-right';
-    const inTranslate = goingRight ? 'translateX(120px)' : 'translateX(-120px)';
-
-    // Out: current slide flies away
-    s.slides[prev].classList.remove('active');
-    s.slides[prev].classList.add(outClass);
-    setTimeout(() => s.slides[prev].classList.remove(outClass), 470);
-
-    // In: new slide comes from opposite side
-    s.slides[next].style.transform = inTranslate;
-    s.slides[next].style.opacity = '0';
-    s.slides[next].getBoundingClientRect(); // force reflow
-    s.slides[next].style.transform = '';
-    s.slides[next].style.opacity = '';
-    s.slides[next].classList.add('active');
-
-    s.current = next;
-    updateDots(name);
-  }
-
-  function changeSlide(name, dir) { goTo(name, sliders[name].current + dir); }
-
-  /* ── Nav highlight on scroll ── */
-  const navSections = ['home', 'warum', 'produkte', 'offerte', 'referenzen'];
-  function updateNavActive() {
-    let current = navSections[0];
-    const threshold = window.innerHeight * 0.45;
-    navSections.forEach(id => {
-      const el = document.getElementById(id);
-      if (el && el.getBoundingClientRect().top <= threshold) current = id;
-    });
-    document.querySelectorAll('#desktop-nav a[href^="#"]').forEach(a => {
-      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-    });
-  }
-  window.addEventListener('scroll', updateNavActive, { passive: true });
-  updateNavActive();
-
-  /* ── Auto-advance sliders ── */
-  setInterval(() => changeSlide('ref',  1), 7000);
-
-  /* ── Touch swipe for mobile ── */
-  [['prod', '.prod-slides'], ['ref', '.ref-slides-container']].forEach(([name, sel]) => {
-    const el = document.querySelector(sel);
-    if (!el) return;
-    let startX = 0;
-    el.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-    el.addEventListener('touchend', e => {
-      const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) changeSlide(name, diff > 0 ? 1 : -1);
-    }, { passive: true });
-  });
-
-  /* ── Equal height for why-cards (collapsed state) ── */
-  function equalizeWhyCards() {
-    const cards = document.querySelectorAll('.why-card');
-    cards.forEach(c => c.style.minHeight = '');
-    const max = Math.max(...[...cards].map(c => c.offsetHeight));
-    cards.forEach(c => c.style.minHeight = max + 'px');
-  }
-  window.addEventListener('load', equalizeWhyCards);
-  window.addEventListener('resize', equalizeWhyCards);
-
-  /* ── Scroll micro-animations ── */
-  const scrollObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        scrollObserver.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
-
-  document.querySelectorAll('.fade-up, .fade-in').forEach(el => scrollObserver.observe(el));
-
-  /* ── Init ── */
-  initSlider('prod');
-  initSlider('ref');
-
-  // Apply saved language on load
-  const savedLang = localStorage.getItem('krf_lang') || 'DE';
-  setLang(savedLang);
-</script>
+<script src="assets/js/translations.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/index.js"></script>
 </body>
 </html>

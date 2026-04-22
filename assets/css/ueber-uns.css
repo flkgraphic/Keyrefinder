@@ -1,0 +1,112 @@
+/* ============================================================
+   ueber-uns.css – Styles for ueber-uns.html
+   ============================================================ */
+
+body { overflow-x: hidden; }
+
+/* ── SHARED SECTION HELPERS ── */
+.section-inner { max-width: 1200px; margin: 0 auto; width: 100%; }
+.section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 16px; }
+.section-title-lg { font-size: 2rem; font-weight: 100; letter-spacing: 0.03em; margin-bottom: 48px; color: var(--text); }
+
+/* ── TEAM ── */
+#team-section {
+  padding: 100px 48px;
+  background: var(--gray-bg);
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 48px;
+}
+.team-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px 32px;
+  border: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow .25s ease;
+}
+.team-card.visible { opacity: 1; transform: translateY(0); }
+.team-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+.team-avatar {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--dark); display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; font-weight: 100; color: #fff;
+  margin-bottom: 20px; letter-spacing: 0.05em;
+}
+.team-name { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.team-role { font-size: 0.82rem; font-weight: 300; color: #888; letter-spacing: 0.04em; }
+
+/* ── TIMELINE ── */
+#timeline-section {
+  padding: 100px 48px;
+  background: #fff;
+}
+.timeline-wrap { position: relative; }
+.timeline-wrap::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--border) 8%, var(--border) 92%, transparent);
+  transform: translateX(-50%);
+}
+
+.tl-item {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 0;
+  margin-bottom: 0;
+  position: relative;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.tl-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tl-item:nth-child(odd) .tl-content { grid-column: 1; text-align: right; padding: 40px 52px 40px 0; }
+.tl-item:nth-child(odd) .tl-empty { grid-column: 3; }
+.tl-item:nth-child(even) .tl-content { grid-column: 3; text-align: left; padding: 40px 0 40px 52px; }
+.tl-item:nth-child(even) .tl-empty { grid-column: 1; }
+.tl-center { grid-column: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; }
+
+.tl-dot {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #fff; border: 2px solid var(--border);
+  transition: border-color .4s, background .4s;
+  flex-shrink: 0;
+}
+.tl-item.visible .tl-dot { border-color: var(--red); background: var(--red); }
+
+.tl-year {
+  font-size: 2.2rem; font-weight: 100; color: var(--red);
+  letter-spacing: 0.02em; line-height: 1;
+  margin-bottom: 10px;
+}
+.tl-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #999; margin-bottom: 8px; }
+.tl-text { font-size: 0.95rem; font-weight: 300; line-height: 1.75; color: #555; }
+
+.tl-item.milestone .tl-year { font-weight: 700; font-size: 2.6rem; }
+.tl-item.milestone .tl-text { color: var(--text); font-weight: 500; }
+.tl-item.milestone .tl-dot { width: 20px; height: 20px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  #timeline-section { padding: 60px 24px; }
+  .timeline-wrap::before { left: 28px; }
+  .tl-item { grid-template-columns: 56px 1fr; }
+  .tl-item:nth-child(odd) .tl-content,
+  .tl-item:nth-child(even) .tl-content { grid-column: 2; text-align: left; padding: 32px 0 32px 32px; }
+  .tl-item:nth-child(odd) .tl-empty,
+  .tl-item:nth-child(even) .tl-empty { display: none; }
+  .tl-center { grid-column: 1; }
+  .team-grid { grid-template-columns: 1fr; }
+  #team-section { padding: 60px 24px; }
+}
