@@ -9,8 +9,16 @@ function offCarouselGo(m, i) {
   offCState[m] = i;
 }
 
-function offPrev(e, m) { e.stopPropagation(); offCarouselGo(m, (offCState[m] - 1 + 3) % 3); }
-function offNext(e, m) { e.stopPropagation(); offCarouselGo(m, (offCState[m] + 1) % 3); }
+function offPrev(e, m) {
+  e.stopPropagation();
+  const total = document.getElementById('ofc-' + m).children.length;
+  offCarouselGo(m, (offCState[m] - 1 + total) % total);
+}
+function offNext(e, m) {
+  e.stopPropagation();
+  const total = document.getElementById('ofc-' + m).children.length;
+  offCarouselGo(m, (offCState[m] + 1) % total);
+}
 
 function selectModel(idx) {
   document.querySelectorAll('.off-model').forEach((el, i) =>

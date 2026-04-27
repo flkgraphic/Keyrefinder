@@ -52,22 +52,22 @@ window.TRANSLATIONS = {
     /* ── index.html: Produkte ── */
     produkte_title: 'Produkte',
 
-    prod1_h2: 'KeyRefinder® – Der Erfolgreichste der Schweiz',
+    prod1_h2: 'KeyRefinder® –<br>Der Erfolgreichste der Schweiz',
     prod1_p:  'Seit über 30 Jahren vertrauen renommierte Unternehmen auf das effizienteste Schlüsselfundsystem der Schweiz. So klein er ist, so gross ist seine Wirkung: Ein Werbegeschenk, das täglich Kontakte generiert und Ihre Marke fest im persönlichen Umfeld Ihrer Kunden verankert.',
 
-    prod2_h2: 'KeyShopper® – Die geniale 2-in-1 Lösung',
+    prod2_h2: 'KeyShopper® –<br>Die geniale 2-in-1 Lösung',
     prod2_p:  'Warum sich für nur eine Funktion entscheiden? Der KeyShopper® kombiniert den bewährten Fundservice mit einer praktischen Einkaufswagen-Entriegelung. Ein unverzichtbarer Alltagshelfer, den Ihre Kunden garantiert nie wieder vom Schlüsselbund nehmen.',
 
-    prod3_h2: 'Individuelle Formen &amp; Farben – Branding ohne Grenzen',
+    prod3_h2: 'Individuelle Formen &amp; Farben –<br>Branding ohne Grenzen',
     prod3_p:  'Wir bringen Ihre Marke in Bestform. Von der massgeschneiderten Sonderform Ihres Logos bis hin zum hochauflösenden Fotodruck setzen wir Ihre Corporate Identity präzise um. Wir machen Ihr Branding zum haptischen Erlebnis, das perfekt zu Ihrer Designsprache passt.',
 
-    prod4_h2: 'Edle Oberflächen – Glänzend oder Matt',
+    prod4_h2: 'Edle Oberflächen –<br>Glänzend oder Matt',
     prod4_p:  'Details machen den Unterschied in der Markenwahrnehmung. Verleihen Sie Ihren Produkten eine exklusive Note: Wählen Sie zwischen einer farblos glänzenden Oberfläche für brillante Farbtiefe oder einem edlen Matt-Finish für eine moderne, technische Optik.',
 
-    prod5_h2: 'Spezialverpackungen – Der perfekte erste Eindruck',
+    prod5_h2: 'Spezialverpackungen –<br>Der perfekte erste Eindruck',
     prod5_p:  'Ein hochwertiges Geschenk verdient einen glanzvollen Auftritt. Auf Wunsch realisieren wir individuelle Verpackungslösungen, die exakt auf Ihr Branding abgestimmt sind. So wird bereits das Auspacken zum exklusiven Markenerlebnis für Ihre Kunden.',
 
-    prod6_h2: 'Info-Folder – Botschaften mit Format',
+    prod6_h2: 'Info-Folder –<br>Botschaften mit Format',
     prod6_p:  'Vermitteln Sie den Mehrwert Ihres Geschenks mit Stil. Wir erstellen massgeschneiderte Info-Folder in Spezialformaten, die das KeyRefinder-System verständlich erklären und gleichzeitig ausreichend Platz für Ihre individuelle Werbebotschaft bieten.',
 
     /* ── Offerte (shared by index.html + offerte.html) ── */
@@ -293,22 +293,22 @@ window.TRANSLATIONS = {
     /* ── index.html: Produkte ── */
     produkte_title: 'Prodotti',
 
-    prod1_h2: 'KeyRefinder® – Il più di successo in Svizzera',
+    prod1_h2: 'KeyRefinder® –<br>Il più di successo in Svizzera',
     prod1_p:  'Da oltre 30 anni le aziende più rinomate si affidano al sistema di ritrovamento chiavi più efficiente della Svizzera. Così piccolo, ma così grande il suo impatto: un regalo promozionale che genera contatti ogni giorno e radica saldamente il vostro marchio nell\'ambiente personale dei vostri clienti.',
 
-    prod2_h2: 'KeyShopper® – La brillante soluzione 2 in 1',
+    prod2_h2: 'KeyShopper® –<br>La brillante soluzione 2 in 1',
     prod2_p:  'Perché scegliere una sola funzione? Il KeyShopper® combina il collaudato servizio di ritrovamento con un pratico sblocca-carrello. Un assistente quotidiano indispensabile che i vostri clienti non toglieranno mai più dal mazzo di chiavi.',
 
-    prod3_h2: 'Forme &amp; colori individuali – Branding senza limiti',
+    prod3_h2: 'Forme &amp; colori individuali –<br>Branding senza limiti',
     prod3_p:  'Portiamo il vostro marchio nella sua forma migliore. Dalla forma speciale su misura del vostro logo alla stampa fotografica ad alta risoluzione, realizziamo la vostra Corporate Identity con precisione. Trasformiamo il vostro branding in un\'esperienza tattile che si adatta perfettamente al vostro linguaggio di design.',
 
-    prod4_h2: 'Superfici pregiate – Lucide o opache',
+    prod4_h2: 'Superfici pregiate –<br>Lucide o opache',
     prod4_p:  'I dettagli fanno la differenza nella percezione del marchio. Date ai vostri prodotti un tocco esclusivo: scegliete tra una superficie trasparente lucida per una brillante profondità di colore o un raffinato finitura opaca per un\'ottica moderna e tecnica.',
 
-    prod5_h2: 'Confezioni speciali – La prima impressione perfetta',
+    prod5_h2: 'Confezioni speciali –<br>La prima impressione perfetta',
     prod5_p:  'Un regalo di qualità merita una presentazione brillante. Su richiesta realizziamo soluzioni di packaging individuali, abbinate esattamente al vostro branding. Così già il momento dell\'apertura diventa un\'esperienza di marca esclusiva per i vostri clienti.',
 
-    prod6_h2: 'Info-folder – Messaggi con stile',
+    prod6_h2: 'Info-folder –<br>Messaggi con stile',
     prod6_p:  'Comunicate il valore aggiunto del vostro regalo con stile. Creiamo info-folder su misura in formati speciali che spiegano il sistema KeyRefinder in modo comprensibile e offrono allo stesso tempo spazio sufficiente per il vostro messaggio pubblicitario individuale.',
 
     /* ── Offerte ── */
@@ -534,22 +534,22 @@ window.TRANSLATIONS = {
     /* ── index.html: Produkte ── */
     produkte_title: 'Produits',
 
-    prod1_h2: 'KeyRefinder® – Le plus populaire de Suisse',
+    prod1_h2: 'KeyRefinder® –<br>Le plus populaire de Suisse',
     prod1_p:  'Depuis plus de 30 ans, les entreprises les plus réputées font confiance au système de récupération de clés le plus efficace de Suisse. Aussi petit soit-il, son impact est immense : un cadeau publicitaire qui génère des contacts chaque jour et ancre solidement votre marque dans l\'environnement personnel de vos clients.',
 
-    prod2_h2: 'KeyShopper® – La brillante solution 2 en 1',
+    prod2_h2: 'KeyShopper® –<br>La brillante solution 2 en 1',
     prod2_p:  'Pourquoi choisir une seule fonction ? Le KeyShopper® combine le service de récupération éprouvé avec un pratique débloqueur de chariot. Un assistant quotidien indispensable que vos clients ne retireront plus jamais de leur trousseau.',
 
-    prod3_h2: 'Formes &amp; couleurs individuelles – Branding sans limites',
+    prod3_h2: 'Formes &amp; couleurs individuelles –<br>Branding sans limites',
     prod3_p:  'Nous donnons à votre marque sa meilleure forme. De la forme spéciale sur mesure de votre logo à l\'impression photo haute résolution, nous réalisons votre Corporate Identity avec précision. Nous transformons votre branding en une expérience tactile qui correspond parfaitement à votre langage de design.',
 
-    prod4_h2: 'Surfaces nobles – Brillantes ou mates',
+    prod4_h2: 'Surfaces nobles –<br>Brillantes ou mates',
     prod4_p:  'Les détails font la différence dans la perception de la marque. Donnez à vos produits une touche exclusive : choisissez entre une surface brillante transparente pour une profondeur de couleur éclatante ou une finition mate raffinée pour une optique moderne et technique.',
 
-    prod5_h2: 'Emballages spéciaux – La première impression parfaite',
+    prod5_h2: 'Emballages spéciaux –<br>La première impression parfaite',
     prod5_p:  'Un cadeau de qualité mérite une présentation brillante. Sur demande, nous réalisons des solutions d\'emballage individuelles, adaptées exactement à votre branding. Ainsi, dès le déballage, vos clients vivent une expérience de marque exclusive.',
 
-    prod6_h2: 'Info-folders – Des messages avec du style',
+    prod6_h2: 'Info-folders –<br>Des messages avec du style',
     prod6_p:  'Communiquez la valeur ajoutée de votre cadeau avec style. Nous créons des info-folders sur mesure dans des formats spéciaux qui expliquent le système KeyRefinder de façon compréhensible et offrent en même temps suffisamment d\'espace pour votre message publicitaire individuel.',
 
     /* ── Offerte ── */
@@ -775,22 +775,22 @@ window.TRANSLATIONS = {
     /* ── index.html: Produkte ── */
     produkte_title: 'Products',
 
-    prod1_h2: 'KeyRefinder® – Switzerland\'s Most Successful',
+    prod1_h2: 'KeyRefinder® –<br>Switzerland\'s Most Successful',
     prod1_p:  'For over 30 years, renowned companies have trusted Switzerland\'s most efficient key finder system. Small as it is, its impact is enormous: an advertising gift that generates contacts every day and firmly anchors your brand in the personal environment of your customers.',
 
-    prod2_h2: 'KeyShopper® – The Brilliant 2-in-1 Solution',
+    prod2_h2: 'KeyShopper® –<br>The Brilliant 2-in-1 Solution',
     prod2_p:  'Why choose just one function? The KeyShopper® combines the proven finder service with a practical shopping cart release. An indispensable daily companion that your customers will never remove from their keyring again.',
 
-    prod3_h2: 'Individual Shapes &amp; Colours – Branding Without Limits',
+    prod3_h2: 'Individual Shapes &amp; Colours –<br>Branding Without Limits',
     prod3_p:  'We bring your brand into its best form. From the custom-made special shape of your logo to high-resolution photo printing, we implement your corporate identity with precision. We turn your branding into a tactile experience that perfectly matches your design language.',
 
-    prod4_h2: 'Premium Surfaces – Glossy or Matt',
+    prod4_h2: 'Premium Surfaces –<br>Glossy or Matt',
     prod4_p:  'Details make the difference in brand perception. Give your products an exclusive touch: choose between a clear glossy surface for brilliant colour depth or a refined matt finish for a modern, technical look.',
 
-    prod5_h2: 'Special Packaging – The Perfect First Impression',
+    prod5_h2: 'Special Packaging –<br>The Perfect First Impression',
     prod5_p:  'A high-quality gift deserves a brilliant presentation. On request, we create individual packaging solutions tailored exactly to your branding. This way, even the unboxing becomes an exclusive brand experience for your customers.',
 
-    prod6_h2: 'Info-Folders – Messages with Style',
+    prod6_h2: 'Info-Folders –<br>Messages with Style',
     prod6_p:  'Communicate the added value of your gift in style. We create tailor-made info-folders in special formats that explain the KeyRefinder system in an understandable way while providing ample space for your individual advertising message.',
 
     /* ── Offerte ── */

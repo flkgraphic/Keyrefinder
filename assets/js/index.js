@@ -2,15 +2,19 @@
    index.js – Logic for index.html
    ============================================================ */
 
-/* ── Random hero header ── */
+/* ── Hero header rotation ── */
 const heroImages = [
-  'assets/images/ui/header-1.png',
-  'assets/images/ui/header-2.jpg'
+  { src: 'assets/images/ui/header-1.png', light: false },
+  { src: 'assets/images/ui/header-2.jpg', light: false },
+  { src: 'assets/images/ui/header-4.jpg', light: true },
+  { src: 'assets/images/ui/header-5.jpg', light: true },
 ];
-const lastHero = localStorage.getItem('lastHero');
-const nextHero = heroImages.find(img => img !== lastHero) || heroImages[0];
-localStorage.setItem('lastHero', nextHero);
-document.getElementById('home').style.backgroundImage = `url('${nextHero}')`;
+const lastIdx = parseInt(localStorage.getItem('lastHeroIdx') ?? '-1');
+const nextIdx = (lastIdx + 1) % heroImages.length;
+localStorage.setItem('lastHeroIdx', nextIdx);
+const heroEl = document.getElementById('home');
+heroEl.style.backgroundImage = `url('${heroImages[nextIdx].src}')`;
+if (heroImages[nextIdx].light) heroEl.classList.add('light-hero');
 
 /* ── Offerte: image carousels ── */
 const offCState = [0, 0, 0];
@@ -21,41 +25,18 @@ function offCarouselGo(modelIdx, slideIdx) {
   offCState[modelIdx] = slideIdx;
 }
 
-function offPrev(e, m) { e.stopPropagation(); offCarouselGo(m, (offCState[m] - 1 + 3) % 3); }
-function offNext(e, m) { e.stopPropagation(); offCarouselGo(m, (offCState[m] + 1) % 3); }
+function offPrev(e, m) {
+  e.stopPropagation();
+  const total = document.getElementById('ofc-' + m).children.length - 1; // exclude clone
+  offCarouselGo(m, (offCState[m] - 1 + total) % total);
+}
+function offNext(e, m) {
+  e.stopPropagation();
+  const total = document.getElementById('ofc-' + m).children.length - 1; // exclude clone
+  offCarouselGo(m, (offCState[m] + 1) % total);
+}
 function offDot(e, m, i) { e.stopPropagation(); offCarouselGo(m, i); }
 
-/* Clone first slide for seamless loop */
-document.querySelectorAll('.off-carousel').forEach(carousel => {
-  carousel.appendChild(carousel.children[0].cloneNode(true));
-});
-
-/* Auto-scroll on hover */
-const hoverTimers = {};
-document.querySelectorAll('.off-model').forEach(card => {
-  const m = parseInt(card.dataset.idx);
-  card.addEventListener('mouseenter', () => {
-    hoverTimers[m] = setInterval(() => {
-      const current = offCState[m];
-      const nextPhysical = current + 1;
-      if (nextPhysical === 3) {
-        const carousel = document.getElementById('ofc-' + m);
-        carousel.style.transform = 'translateX(-300%)';
-        offCState[m] = 3;
-        setTimeout(() => {
-          carousel.style.transition = 'none';
-          carousel.style.transform = 'translateX(0%)';
-          void carousel.offsetWidth;
-          carousel.style.transition = '';
-          offCState[m] = 0;
-        }, 460);
-      } else {
-        offCarouselGo(m, nextPhysical);
-      }
-    }, 750);
-  });
-  card.addEventListener('mouseleave', () => clearInterval(hoverTimers[m]));
-});
 
 /* ── Offerte: model + qty selection ── */
 function selectModel(idx) {

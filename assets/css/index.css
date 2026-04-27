@@ -8,25 +8,29 @@
 /* ── HERO ── */
 #home {
   position: relative; overflow: hidden;
-  min-height: 610px;
+  min-height: 630px;
   background: center center / cover no-repeat;
   display: flex; align-items: center;
 }
 .hero-text-overlay {
   position: relative; z-index: 2;
-  margin-left: auto; margin-right: 14%;
-  max-width: 560px; padding: 40px 0;
+  margin-left: auto; margin-right: 6%;
+  max-width: 600px; padding: 40px 0;
 }
 .hero-text-overlay h1 {
-  font-size: 2.5rem; font-weight: 700; color: #111;
+  font-size: 3rem; font-weight: 700; color: #111;
   line-height: 1.15; margin-bottom: 22px;
 }
 .hero-text-overlay ul { list-style: none; }
 .hero-text-overlay ul li {
-  font-size: 1.1rem; color: #222; margin-bottom: 9px;
+  font-size: 1.2rem; color: #222; margin-bottom: 16px;
   font-weight: 300; display: flex; gap: 8px;
 }
 .hero-text-overlay ul li::before { content: '✓'; color: #333; font-weight: 700; flex-shrink: 0; display: inline-block; }
+
+#home.light-hero .hero-text-overlay h1 { color: #fff; }
+#home.light-hero .hero-text-overlay ul li { color: #fff; }
+#home.light-hero .hero-text-overlay ul li::before { color: #fff; }
 
 /* ── LOGO TICKER ── */
 .ticker-wrap { overflow: hidden; background: #fff; padding: 16px 0; }
