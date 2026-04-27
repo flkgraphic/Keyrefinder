@@ -27,12 +27,12 @@ function offCarouselGo(modelIdx, slideIdx) {
 
 function offPrev(e, m) {
   e.stopPropagation();
-  const total = document.getElementById('ofc-' + m).children.length - 1; // exclude clone
+  const total = document.getElementById('ofc-' + m).children.length;
   offCarouselGo(m, (offCState[m] - 1 + total) % total);
 }
 function offNext(e, m) {
   e.stopPropagation();
-  const total = document.getElementById('ofc-' + m).children.length - 1; // exclude clone
+  const total = document.getElementById('ofc-' + m).children.length;
   offCarouselGo(m, (offCState[m] + 1) % total);
 }
 function offDot(e, m, i) { e.stopPropagation(); offCarouselGo(m, i); }
