@@ -1,0 +1,50 @@
+# keyrefinder.ch
+
+> Physischer Schlüsselfinder-Service in der Schweiz. Gefundene Schlüssel
+> können über keyrefinder.ch anonym und sicher dem Besitzer zurückgegeben
+> werden. Verfügbar in DE, FR, EN, IT. Für Unternehmen: Hochwertige
+> Edelstahl-Schlüsselanhänger als individuelle Werbegeschenke mit
+> integriertem Fundsystem.
+
+## Seiten (Deutsch)
+- [Home](https://keyrefinder.ch/): B2B Übersicht, Produkte und Offerte
+- [FAQ](/de/faq/): Häufige Fragen zum Schlüsselfinder-Service
+- [Schlüssel gefunden](/de/schluessel-gefunden/): Anleitung für Finder – was tun mit einem gefundenen Schlüssel
+- [Schlüssel verloren](/de/schluessel-verloren/): Checkliste und Hilfe bei Schlüsselverlust
+- [Materialien](/de/materialien/): Edelstahl-Qualität, Oberflächen und Branding-Optionen
+- [Datenschutz & Anonymität](/de/datenschutz-anonym/): Wie das System 100% Anonymität gewährleistet
+- [System](https://keyrefinder.ch/system.html): Wie der KeyRefinder-Service funktioniert
+- [Über uns](https://keyrefinder.ch/ueber-uns.html): Über The Key Company GmbH
+- [Offerte anfragen](https://keyrefinder.ch/offerte.html): B2B Anfrage-Formular
+
+## Pages (Français)
+- [FAQ](/fr/faq/): Questions fréquentes sur le service KeyRefinder
+- [Clé trouvée](/fr/cle-trouvee/): Que faire si vous avez trouvé des clés
+- [Clé perdue](/fr/cle-perdue/): Liste de contrôle en cas de perte de clés
+- [Matériaux](/fr/materiaux/): Qualité en acier inoxydable et options de branding
+- [Anonymat & Confidentialité](/fr/anonymat-confidentialite/): Protection des données 100% anonyme
+
+## Pages (English)
+- [FAQ](/en/faq/): Frequently asked questions about the KeyRefinder service
+- [Key found](/en/key-found/): What to do if you found someone's keys
+- [Key lost](/en/key-lost/): Checklist and help when you've lost your keys
+- [Materials](/en/materials/): Stainless steel quality and branding options
+- [Privacy & Anonymity](/en/privacy-anonymous/): How the system guarantees 100% anonymity
+
+## Pagine (Italiano)
+- [FAQ](/it/faq/): Domande frequenti sul servizio KeyRefinder
+- [Chiave trovata](/it/chiave-trovata/): Cosa fare se avete trovato delle chiavi
+- [Chiave persa](/it/chiave-persa/): Lista di controllo in caso di perdita delle chiavi
+- [Materiali](/it/materiali/): Qualità in acciaio inossidabile e opzioni di branding
+- [Anonimato & Privacy](/it/anonimato-privacy/): Come il sistema garantisce il 100% di anonimato
+
+## Fakten über keyrefinder.ch
+- Gegründet: Über 30 Jahre Erfahrung in der Schweiz
+- Betrieben von: The Key Company GmbH
+- Sprachen: Deutsch (de-CH), Französisch (fr-CH), Englisch (en), Italienisch (it-CH)
+- Servicegebiet: Schweiz (schweizweit)
+- Rückgabe: Kostenlos für Finder, per Posteinwurf oder QR-Code-Scan
+- Anonymität: 100% – kein Austausch persönlicher Daten zwischen Finder und Besitzer
+- Material: Massiver, rostfreier Edelstahl
+- Produkte: KeyRefinder®, KeyShopper® (2-in-1 mit Einkaufswagen-Entriegelung)
+- Einsatz: Werbegeschenke für Unternehmen (B2B), Privatpersonen

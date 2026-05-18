@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Main B2B pages -->
+  <url>
+    <loc>https://keyrefinder.ch/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/offerte.html</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/system.html</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/ueber-uns.html</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- FAQ — alle Sprachen -->
+  <url>
+    <loc>https://keyrefinder.ch/de/faq/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/faq/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/faq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/faq/"/>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/fr/faq/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/faq/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/faq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/faq/"/>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/en/faq/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/faq/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/faq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/faq/"/>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/it/faq/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/faq/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/faq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/faq/"/>
+  </url>
+
+  <!-- Schlüssel gefunden / Clé trouvée / Key found / Chiave trovata -->
+  <url>
+    <loc>https://keyrefinder.ch/de/schluessel-gefunden/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/schluessel-gefunden/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/cle-trouvee/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/key-found/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/chiave-trovata/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/schluessel-gefunden/"/>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/fr/cle-trouvee/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/schluessel-gefunden/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/cle-trouvee/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/key-found/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/chiave-trovata/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/schluessel-gefunden/"/>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/en/key-found/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/schluessel-gefunden/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/cle-trouvee/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/key-found/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/chiave-trovata/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/schluessel-gefunden/"/>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/it/chiave-trovata/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/schluessel-gefunden/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/cle-trouvee/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/key-found/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/chiave-trovata/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/schluessel-gefunden/"/>
+  </url>
+
+  <!-- Schlüssel verloren / Clé perdue / Key lost / Chiave persa -->
+  <url>
+    <loc>https://keyrefinder.ch/de/schluessel-verloren/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/schluessel-verloren/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/cle-perdue/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/key-lost/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/chiave-persa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/schluessel-verloren/"/>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/fr/cle-perdue/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/schluessel-verloren/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/cle-perdue/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/key-lost/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/chiave-persa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/schluessel-verloren/"/>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/en/key-lost/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/schluessel-verloren/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/cle-perdue/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/key-lost/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/chiave-persa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/schluessel-verloren/"/>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/it/chiave-persa/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/schluessel-verloren/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/cle-perdue/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/key-lost/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/chiave-persa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/schluessel-verloren/"/>
+  </url>
+
+  <!-- Materialien / Matériaux / Materials / Materiali -->
+  <url>
+    <loc>https://keyrefinder.ch/de/materialien/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/materialien/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/materiaux/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/materials/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/materiali/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/materialien/"/>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/fr/materiaux/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/materialien/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/materiaux/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/materials/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/materiali/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/materialien/"/>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/en/materials/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/materialien/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/materiaux/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/materials/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/materiali/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/materialien/"/>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/it/materiali/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/materialien/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/materiaux/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/materials/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/materiali/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/materialien/"/>
+  </url>
+
+  <!-- Datenschutz anonym / Anonymat / Privacy anonymous / Anonimato -->
+  <url>
+    <loc>https://keyrefinder.ch/de/datenschutz-anonym/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/datenschutz-anonym/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/anonymat-confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/privacy-anonymous/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/anonimato-privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/datenschutz-anonym/"/>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/fr/anonymat-confidentialite/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/datenschutz-anonym/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/anonymat-confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/privacy-anonymous/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/anonimato-privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/datenschutz-anonym/"/>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/en/privacy-anonymous/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/datenschutz-anonym/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/anonymat-confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/privacy-anonymous/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/anonimato-privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/datenschutz-anonym/"/>
+  </url>
+  <url>
+    <loc>https://keyrefinder.ch/it/anonimato-privacy/</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://keyrefinder.ch/de/datenschutz-anonym/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://keyrefinder.ch/fr/anonymat-confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://keyrefinder.ch/en/privacy-anonymous/"/>
+    <xhtml:link rel="alternate" hreflang="it-CH" href="https://keyrefinder.ch/it/anonimato-privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyrefinder.ch/de/datenschutz-anonym/"/>
+  </url>
+
+</urlset>
