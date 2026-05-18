@@ -26,6 +26,7 @@ window.TRANSLATIONS = {
     footer_system:     'System',
     footer_ueber_uns:  'Über uns',
     footer_anfragen:   'Offerte anfragen',
+    footer_faq:        'FAQ',
 
     /* ── index.html: Hero ── */
     hero_h1:    'Ihre Marke in Bestform.',
@@ -258,7 +259,7 @@ window.TRANSLATIONS = {
     nav_system:        'Sistema',
     nav_ueber_uns:     'Chi siamo',
     nav_privatkunden:  'Clienti privati',
-    nav_btn_offerte:   'Richiedi un\'offerta',
+    nav_btn_offerte:   'Richiedere un\'offerta',
 
     /* Footer nav */
     footer_produkte:   'Prodotti',
@@ -267,6 +268,7 @@ window.TRANSLATIONS = {
     footer_system:     'Sistema',
     footer_ueber_uns:  'Chi siamo',
     footer_anfragen:   'Richiedi un\'offerta',
+    footer_faq:        'FAQ',
 
     /* ── index.html: Hero ── */
     hero_h1:    'Il vostro marchio nella sua forma migliore.',
@@ -293,7 +295,7 @@ window.TRANSLATIONS = {
     /* ── index.html: Produkte ── */
     produkte_title: 'Prodotti',
 
-    prod1_h2: 'KeyRefinder® –<br>Il più di successo in Svizzera',
+    prod1_h2: 'KeyRefinder® –<br>Il più popolare in Svizzera',
     prod1_p:  'Da oltre 30 anni le aziende più rinomate si affidano al sistema di ritrovamento chiavi più efficiente della Svizzera. Così piccolo, ma così grande il suo impatto: un regalo promozionale che genera contatti ogni giorno e radica saldamente il vostro marchio nell\'ambiente personale dei vostri clienti.',
 
     prod2_h2: 'KeyShopper® –<br>La brillante soluzione 2 in 1',
@@ -313,15 +315,15 @@ window.TRANSLATIONS = {
 
     /* ── Offerte ── */
     offerte_title:      'Offerta',
-    offerte_page_title: 'Richiedi un\'offerta',
+    offerte_page_title: 'Richiedere un\'offerta',
 
-    cfg_model_lbl:    '<strong>Modello.</strong> <span>Scegli la tua forma.</span>',
+    cfg_model_lbl:    '<strong>Modello.</strong> <span>Selezionare una forma.</span>',
     cfg_model_custom: 'Forma personalizzata',
-    cfg_qty_lbl:      '<strong>Quantità.</strong> <span>Scegli la quantità desiderata.</span>',
+    cfg_qty_lbl:      '<strong>Quantità.</strong> <span>Selezionare la quantità desiderata.</span>',
     cfg_qty_custom_ph: 'Quantità personalizzata',
     cfg_qty_price_req: 'Prezzo su richiesta',
 
-    offerte_error:   'Seleziona un modello e una quantità.',
+    offerte_error:   'Selezionare un modello e una quantità.',
     btn_weiter:      'Avanti',
     btn_absenden:    'Invia',
     btn_back_title:  'Indietro',
@@ -441,9 +443,9 @@ window.TRANSLATIONS = {
     ref53_author: 'Philippe Beyeler, Direttore',
 
     /* ── qty-price labels ── */
-    qty_price_500:  'Da CHF 4.90/pz.',
-    qty_price_1000: 'Da CHF 3.90/pz.',
-    qty_price_5000: 'Da CHF 2.90/pz.',
+    qty_price_500:  'Da CHF 4.90/pz',
+    qty_price_1000: 'Da CHF 3.90/pz',
+    qty_price_5000: 'Da CHF 2.90/pz',
 
     /* ── system.html ── */
     system_title:   '2 modi in cui una chiave con KeyRefinder®<br>ritrova il suo proprietario:',
@@ -508,6 +510,7 @@ window.TRANSLATIONS = {
     footer_system:     'Système',
     footer_ueber_uns:  'À propos',
     footer_anfragen:   'Demander une offre',
+    footer_faq:        'FAQ',
 
     /* ── index.html: Hero ── */
     hero_h1:    'Votre marque dans sa meilleure forme.',
@@ -525,11 +528,11 @@ window.TRANSLATIONS = {
 
     why2_h3:    'Acier inoxydable durable',
     why2_short: 'Misez sur une qualité durable. L\'acier inoxydable garantit un toucher raffiné et une longévité extrême – l\'alternative durable et haut de gamme au plastique.',
-    why2_long:  'Oubliez les goodies éphémères. L\'utilisation d\'acier inoxydable massif assure un poids précieux en main et garantit que votre message publicitaire reste présent au quotidien pendant des décennies. Une déclaration de qualité et de responsabilité écologique qui reflète la valeur de votre entreprise.',
+    why2_long:  'Oubliez les gadget éphémères. L\'utilisation d\'acier inoxydable massif assure un poids précieux en main et garantit que votre message publicitaire reste présent au quotidien pendant des décennies. Une déclaration de qualité et de responsabilité écologique qui reflète la valeur de votre entreprise.',
 
     why3_h3:    'Service de récupération sécurisé',
     why3_short: 'Notre système suisse organise la logistique complète des clés perdues – au choix par voie postale ou contact direct, de façon discrète et anonyme. Le soin apporté aux clients et la sécurité des données sont notre marque de fabrique.',
-    why3_long:  'Offrez la sécurité : le trouveur dépose la clé anonymement dans une boîte aux lettres ou contacte le propriétaire directement via notre système. Dans les deux cas, la vie privée est préservée à 100%. Nous restons en contact étroit avec nos clients, entretenons des relations à long terme et gérons leurs données de façon responsable. La transparence est importante pour nous – des promesses irréalistes comme un service gratuit à vie ne font pas partie de notre conception des affaires.',
+    why3_long:  'Offrez la sécurité : celui qui trouve la clé la dépose anonymement dans une boîte aux lettres ou contacte le propriétaire directement via notre système. Dans les deux cas, la vie privée est préservée à 100%. Nous restons en contact étroit avec nos clients, entretenons des relations à long terme et gérons leurs données de façon responsable. La transparence est importante pour nous – des promesses irréalistes comme un service gratuit à vie ne font pas partie de notre conception des affaires.',
 
     /* ── index.html: Produkte ── */
     produkte_title: 'Produits',
@@ -749,6 +752,7 @@ window.TRANSLATIONS = {
     footer_system:     'System',
     footer_ueber_uns:  'About us',
     footer_anfragen:   'Request a quote',
+    footer_faq:        'FAQ',
 
     /* ── index.html: Hero ── */
     hero_h1:    'Your brand in its best form.',
