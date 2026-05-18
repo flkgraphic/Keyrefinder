@@ -138,6 +138,10 @@
   transition: opacity 0.2s;
 }
 
+.cta-block .cta-block__btn {
+  color: #fff;
+}
+
 .cta-block__btn:hover {
   opacity: 0.85;
   text-decoration: none;
