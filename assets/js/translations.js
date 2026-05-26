@@ -27,6 +27,7 @@ window.TRANSLATIONS = {
     footer_ueber_uns:  'Über uns',
     footer_anfragen:   'Offerte anfragen',
     footer_faq:        'FAQ',
+    footer_faq_href:   'de/faq/',
 
     /* ── index.html: Hero ── */
     hero_h1:    'Ihre Marke in Bestform.',
@@ -270,6 +271,7 @@ window.TRANSLATIONS = {
     footer_ueber_uns:  'Chi siamo',
     footer_anfragen:   'Richiedi un\'offerta',
     footer_faq:        'FAQ',
+    footer_faq_href:   'it/faq/',
 
     /* ── index.html: Hero ── */
     hero_h1:    'Il vostro marchio nella sua forma migliore.',
@@ -513,6 +515,7 @@ window.TRANSLATIONS = {
     footer_ueber_uns:  'À propos',
     footer_anfragen:   'Demander une offre',
     footer_faq:        'FAQ',
+    footer_faq_href:   'fr/faq/',
 
     /* ── index.html: Hero ── */
     hero_h1:    'Votre marque dans sa meilleure forme.',
@@ -756,6 +759,7 @@ window.TRANSLATIONS = {
     footer_ueber_uns:  'About us',
     footer_anfragen:   'Request a quote',
     footer_faq:        'FAQ',
+    footer_faq_href:   'en/faq/',
 
     /* ── index.html: Hero ── */
     hero_h1:    'Your brand in its best form.',
@@ -995,6 +999,11 @@ window.applyTranslations = function(lang) {
   document.querySelectorAll('[data-i18n-ph]').forEach(el => {
     const key = el.getAttribute('data-i18n-ph');
     if (t[key] !== undefined) el.placeholder = t[key];
+  });
+
+  document.querySelectorAll('[data-i18n-href]').forEach(el => {
+    const key = el.getAttribute('data-i18n-href');
+    if (t[key] !== undefined) el.href = t[key];
   });
 
   document.documentElement.lang = { DE: 'de', IT: 'it', FR: 'fr', EN: 'en' }[lang] || 'de';
