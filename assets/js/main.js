@@ -36,5 +36,6 @@ document.addEventListener('click', e => {
   }
 });
 
-const savedLang = localStorage.getItem('krf_lang') || 'DE';
-setLang(savedLang);
+const urlLang = (window.location.pathname.match(/^\/(de|fr|en|it)\//) || [])[1];
+const pageLang = urlLang ? urlLang.toUpperCase() : (localStorage.getItem('krf_lang') || 'DE');
+setLang(pageLang);
