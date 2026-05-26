@@ -21,7 +21,7 @@ Wenn sich an dem Schlüsselbund ein KeyRefinder- oder KeyShopper-Anhänger befin
 Werfen Sie den gefundenen Schlüsselbund einfach unverpackt in den nächsten gelben Briefkasten der Schweizerischen Post. Sie müssen keine Briefmarke aufkleben und keine Adresse suchen. Die Post leitet den Schlüssel automatisch an unsere sichere Zentrale weiter. Von dort aus kontaktieren wir den registrierten Besitzer und senden ihm seinen Schlüssel diskret zu. Für Sie als Finder ist die Sache damit erledigt!
 
 **<h3> Option 2: Direkte, anonyme Meldung online**
-Auf der Rückseite des KeyRefinder-Anhängers finden Sie einen QR-Code oder eine Website mit einer Identifikationsnummer.
+Auf der Rückseite des KeyRefinder-Anhängers finden Sie eine Website mit einer Identifikationsnummer.
 1. Scannen Sie den Code mit Ihrem Smartphone oder geben Sie die Nummer auf unserer Website ein.
 2. Folgen Sie den kurzen Anweisungen auf dem Bildschirm.
 3. Unser System stellt eine **anonyme Verbindung** zwischen Ihnen und dem Besitzer her. Sie können eine Übergabe vereinbaren, ohne dass Ihre echte Telefonnummer oder Ihr Name preisgegeben werden. Erfahren Sie hier mehr über unseren [Datenschutz & Anonymität](/de/datenschutz-anonym/).

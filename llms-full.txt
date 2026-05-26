@@ -10,9 +10,9 @@ Für Unternehmen bietet keyrefinder.ch exklusive Werbegeschenke: hochwertige Sch
 
 ## Wie das System funktioniert
 
-1. Ein Unternehmen oder Privatperson erhält einen KeyRefinder®-Anhänger aus Edelstahl. Darauf eingraviert: eine einmalige ID-Nummer und ein QR-Code.
+1. Ein Unternehmen oder Privatperson erhält einen KeyRefinder®-Anhänger aus Edelstahl. Darauf eingraviert: eine einmalige ID-Nummer.
 2. Geht der Schlüsselbund verloren, kann der Finder ihn unverpackt und ohne Briefmarke in einen gelben Schweizer Postbriefkasten einwerfen.
-3. Alternativ scannt der Finder den QR-Code und meldet den Fund anonym über die Website.
+3. Alternativ gibt der Finder die ID-Nummer auf der Website ein und meldet den Fund anonym.
 4. Die Schweizerische Post leitet den Schlüssel an die Sicherheitszentrale weiter. Das System kontaktiert den Besitzer und sendet den Schlüssel per Einschreiben zurück.
 5. Kein Austausch von Namen, Adressen oder Telefonnummern zwischen Finder und Besitzer.
 
@@ -21,7 +21,7 @@ Für Unternehmen bietet keyrefinder.ch exklusive Werbegeschenke: hochwertige Sch
 ## FAQ — Schlüssel gefunden (Deutsch)
 
 **Frage: Ich habe einen Schlüssel gefunden – was muss ich tun?**
-Antwort: Werfen Sie den gefundenen Schlüssel mit KeyRefinder-Anhänger unverpackt in einen gelben Postbriefkasten. Alternativ: QR-Code scannen und Fund anonym melden. Die Rückgabe ist für den Finder kostenlos.
+Antwort: Werfen Sie den gefundenen Schlüssel mit KeyRefinder-Anhänger unverpackt in einen gelben Postbriefkasten. Alternativ: ID auf der Website eingeben und Fund anonym melden. Die Rückgabe ist für den Finder kostenlos.
 
 **Frage: Kostet mich die Rückgabe etwas?**
 Antwort: Nein. Porto und Aufwand trägt der Besitzer bzw. keyrefinder.ch.
@@ -62,7 +62,7 @@ Antwort: Nichts Persönliches. Nur die ID-Nummer, die nur keyrefinder.ch entschl
 
 ## Produkte
 
-**KeyRefinder®**: Klassischer Schlüsselanhänger aus massivem, rostfreiem Edelstahl mit eingravierter ID und QR-Code. Erhältlich in verschiedenen Formen (oval, eckig, Sonderform). Oberfläche: glänzend oder matt.
+**KeyRefinder®**: Klassischer Schlüsselanhänger aus massivem, rostfreiem Edelstahl mit eingravierter ID. Erhältlich in verschiedenen Formen (oval, eckig, Sonderform). Oberfläche: glänzend oder matt.
 
 **KeyShopper®**: 2-in-1 Lösung – Schlüsselanhänger mit integrierter Einkaufswagen-Entriegelung. Bleibt garantiert am Schlüsselbund.
 
@@ -92,7 +92,7 @@ Betreiber: The Key Company GmbH, Schweiz
 ## FAQ (English)
 
 **Q: I found someone's keys – what do I do?**
-A: Drop the key ring unwrapped into any yellow Swiss Post letterbox. No stamp needed. Or scan the QR code on the tag to report it anonymously.
+A: Drop the key ring unwrapped into any yellow Swiss Post letterbox. No stamp needed. Or enter the ID on the website to report it anonymously.
 
 **Q: Is returning the key free?**
 A: Yes, completely free for the finder.
@@ -101,7 +101,7 @@ A: Yes, completely free for the finder.
 A: Yes, 100%. No personal data is exchanged between finder and owner.
 
 **Q: What is KeyRefinder?**
-A: A physical key return service in Switzerland. Premium stainless steel key fobs with a unique engraved ID. If lost, anyone can return them anonymously via Swiss Post or an online QR scan.
+A: A physical key return service in Switzerland. Premium stainless steel key fobs with a unique engraved ID. If lost, anyone can return them anonymously via Swiss Post or online by entering the ID.
 
 **Q: What is the KeyShopper®?**
 A: A 2-in-1 key fob that combines the key return service with a built-in shopping cart token.
@@ -111,7 +111,7 @@ A: A 2-in-1 key fob that combines the key return service with a built-in shoppin
 ## FAQ (Français)
 
 **Q: J'ai trouvé des clés – que faire ?**
-R: Jetez le trousseau non emballé dans une boîte aux lettres jaune. Pas besoin de timbre. Ou scannez le code QR pour signaler le trouvaille anonymement.
+R: Jetez le trousseau non emballé dans une boîte aux lettres jaune. Pas besoin de timbre. Ou entrez le numéro d'identification sur le site web pour signaler la trouvaille anonymement.
 
 **Q: La restitution est-elle gratuite ?**
 R: Oui, totalement gratuite pour le trouveur.
@@ -124,7 +124,7 @@ R: Oui, à 100%. Aucun échange de données personnelles entre trouveur et propr
 ## FAQ (Italiano)
 
 **D: Ho trovato delle chiavi – cosa devo fare?**
-R: Gettate il mazzo non imballato nella cassetta postale gialla. Nessun francobollo necessario. Oppure scansionate il codice QR per segnalare il ritrovamento in modo anonimo.
+R: Gettate il mazzo non imballato nella cassetta postale gialla. Nessun francobollo necessario. Oppure inserite il numero ID sul sito web per segnalare il ritrovamento in modo anonimo.
 
 **D: La restituzione è gratuita?**
 R: Sì, completamente gratuita per il trovatore.

@@ -43,7 +43,7 @@
 - Betrieben von: The Key Company GmbH
 - Sprachen: Deutsch (de-CH), Französisch (fr-CH), Englisch (en), Italienisch (it-CH)
 - Servicegebiet: Schweiz (schweizweit)
-- Rückgabe: Kostenlos für Finder, per Posteinwurf oder QR-Code-Scan
+- Rückgabe: Kostenlos für Finder, per Posteinwurf oder Eingabe der ID auf der Website
 - Anonymität: 100% – kein Austausch persönlicher Daten zwischen Finder und Besitzer
 - Material: Massiver, rostfreier Edelstahl
 - Produkte: KeyRefinder®, KeyShopper® (2-in-1 mit Einkaufswagen-Entriegelung)

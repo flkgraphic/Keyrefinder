@@ -15,7 +15,7 @@ Das Schlüsselfundsystem von keyrefinder.ch wurde exakt dafür entwickelt, diese
 
 ## <h2> Wie die Anonymität technisch funktioniert
 
-Das Prinzip unseres Systems ist bestechend einfach, aber wirkungsvoll: Auf unseren massiven [Edelstahl-Anhängern](/de/materialien/) befindet sich kein Name, keine Adresse und keine Telefonnummer. Das Einzige, was eingraviert ist, ist eine **einmalige, zufällige Identifikationsnummer (ID)** sowie ein QR-Code oder eine Kontakt-URL.
+Das Prinzip unseres Systems ist bestechend einfach, aber wirkungsvoll: Auf unseren massiven [Edelstahl-Anhängern](/de/materialien/) befindet sich kein Name, keine Adresse und keine Telefonnummer. Das Einzige, was eingraviert ist, ist eine **einmalige, zufällige Identifikationsnummer (ID)** sowie eine Kontakt-URL.
 
 Nur unsere zentrale, in der Schweiz gesicherte Datenbank kann diese ID-Nummer einem Namen und einer Adresse zuordnen. Weder der Finder noch Dritte können anhand des Schlüssels Rückschlüsse auf den Besitzer oder dessen Wohnort ziehen.
 
