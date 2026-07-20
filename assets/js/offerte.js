@@ -119,27 +119,34 @@ async function submitOfferte() {
     : (document.querySelector('.qty-btn.active .qty-num')?.textContent?.trim() || '');
 
   const formData = new FormData();
-  formData.append('Vorname',   document.getElementById('inp-vorname').value.trim());
-  formData.append('Nachname',  document.getElementById('inp-nachname').value.trim());
-  formData.append('Firma',     document.getElementById('inp-firma').value.trim());
-  formData.append('E-Mail',    document.getElementById('inp-email').value.trim());
-  formData.append('Telefon',   document.getElementById('inp-telefon').value.trim());
-  formData.append('Modell',    modelName);
-  formData.append('Stückzahl', qtyNum ? qtyNum + ' Stk' : '');
-  const nachricht = document.getElementById('inp-nachricht')?.value?.trim();
-  if (nachricht) formData.append('Nachricht', nachricht);
+  formData.append('firstname', document.getElementById('inp-vorname').value.trim());
+  formData.append('lastname',  document.getElementById('inp-nachname').value.trim());
+  formData.append('company',   document.getElementById('inp-firma').value.trim());
+  formData.append('email',     document.getElementById('inp-email').value.trim());
+  formData.append('phone',     document.getElementById('inp-telefon').value.trim());
+  formData.append('model',     modelName);
+  formData.append('count',     qtyNum || '');
+  const remark = document.getElementById('inp-nachricht')?.value?.trim();
+  if (remark) formData.append('remark', remark);
   const fileInput = document.getElementById('file-upload');
-  if (fileInput?.files.length) formData.append('Anhang', fileInput.files[0]);
+  if (fileInput?.files.length) formData.append('file', fileInput.files[0]);
 
   const btn = document.getElementById('offerte-main-btn');
   btn.disabled = true;
   btn.textContent = 'Wird gesendet…';
 
+  const serverFieldMap = {
+    firstname: { inp: 'inp-vorname',  err: 'err-vorname' },
+    lastname:  { inp: 'inp-nachname', err: 'err-nachname' },
+    company:   { inp: 'inp-firma',    err: 'err-firma' },
+    email:     { inp: 'inp-email',    err: 'err-email' },
+    phone:     { inp: 'inp-telefon',  err: 'err-telefon' },
+  };
+
   try {
-    const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+    const res = await fetch('/index.html?cmd=submitOfferRequest', {
       method: 'POST',
       body: formData,
-      headers: { 'Accept': 'application/json' }
     });
     if (res.ok) {
       document.querySelector('.offerte-config').innerHTML =
@@ -148,6 +155,22 @@ async function submitOfferte() {
            <h3 style="margin:20px 0 10px;font-size:1.4rem;font-weight:500;">Vielen Dank!</h3>
            <p style="color:#666;line-height:1.6;">Ihre Anfrage wurde erfolgreich gesendet.<br>Wir melden uns so bald wie möglich bei Ihnen.</p>
          </div>`;
+    } else if (res.status === 400) {
+      btn.disabled = false;
+      btn.textContent = 'Absenden';
+      try {
+        const data = await res.json();
+        const errors = data.errors || {};
+        Object.entries(errors).forEach(([field, msg]) => {
+          const map = serverFieldMap[field];
+          if (map) {
+            document.getElementById(map.inp).classList.add('invalid');
+            const errEl = document.getElementById(map.err);
+            if (msg) errEl.textContent = msg;
+            errEl.classList.add('visible');
+          }
+        });
+      } catch (_) {}
     } else {
       btn.disabled = false;
       btn.textContent = 'Absenden';
