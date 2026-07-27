@@ -202,9 +202,10 @@ window.TRANSLATIONS = {
     ref53_author: 'Philippe Beyeler, Geschäftsleiter',
 
     /* ── qty-price labels ── */
-    qty_price_500:  'Ab CHF 4.90.–/Stk',
-    qty_price_1000: 'Ab CHF 3.90.–/Stk',
-    qty_price_5000: 'Ab CHF 2.90.–/Stk',
+    qty_price_500:  'Ab CHF 3.45/Stk',
+    qty_price_1000: 'Ab CHF 3.20/Stk',
+    qty_price_3000: 'Ab CHF 2.70/Stk',
+    qty_price_5000: 'Ab CHF 2.50/Stk',
 
     /* ── system.html ── */
     system_title:   '2 Wege wie ein Schlüssel mit KeyRefinder®<br>zu seinem Besitzer zurückfindet:',
@@ -446,9 +447,10 @@ window.TRANSLATIONS = {
     ref53_author: 'Philippe Beyeler, Direttore',
 
     /* ── qty-price labels ── */
-    qty_price_500:  'Da CHF 4.90/pz',
-    qty_price_1000: 'Da CHF 3.90/pz',
-    qty_price_5000: 'Da CHF 2.90/pz',
+    qty_price_500:  'Da CHF 3.45/pz',
+    qty_price_1000: 'Da CHF 3.20/pz',
+    qty_price_3000: 'Da CHF 2.70/pz',
+    qty_price_5000: 'Da CHF 2.50/pz',
 
     /* ── system.html ── */
     system_title:   '2 modi in cui una chiave con KeyRefinder®<br>ritrova il suo proprietario:',
@@ -690,9 +692,10 @@ window.TRANSLATIONS = {
     ref53_author: 'Philippe Beyeler, Directeur général',
 
     /* ── qty-price labels ── */
-    qty_price_500:  'Dès CHF 4.90/pcs',
-    qty_price_1000: 'Dès CHF 3.90/pcs',
-    qty_price_5000: 'Dès CHF 2.90/pcs',
+    qty_price_500:  'Dès CHF 3.45/pcs',
+    qty_price_1000: 'Dès CHF 3.20/pcs',
+    qty_price_3000: 'Dès CHF 2.70/pcs',
+    qty_price_5000: 'Dès CHF 2.50/pcs',
 
     /* ── system.html ── */
     system_title:   '2 façons dont une clé avec KeyRefinder®<br>retrouve son propriétaire :',
@@ -934,9 +937,10 @@ window.TRANSLATIONS = {
     ref53_author: 'Philippe Beyeler, Managing Director',
 
     /* ── qty-price labels ── */
-    qty_price_500:  'From CHF 4.90/pcs',
-    qty_price_1000: 'From CHF 3.90/pcs',
-    qty_price_5000: 'From CHF 2.90/pcs',
+    qty_price_500:  'From CHF 3.45/pcs',
+    qty_price_1000: 'From CHF 3.20/pcs',
+    qty_price_3000: 'From CHF 2.70/pcs',
+    qty_price_5000: 'From CHF 2.50/pcs',
 
     /* ── system.html ── */
     system_title:   '2 ways a key with KeyRefinder®<br>finds its way back to its owner:',

@@ -111,9 +111,12 @@
             <div class="config-block">
               <div class="config-lbl" data-i18n="cfg_qty_lbl"><strong>Stückzahl.</strong> <span>Wählen Sie die gewünschte Menge.</span></div>
               <div class="qty-grid">
-                <button class="qty-btn" onclick="selectQty(this)"><span class="qty-num">500</span><span class="qty-price" data-i18n="qty_price_500">Ab CHF 4.90.–/Stk</span></button>
-                <button class="qty-btn" onclick="selectQty(this)"><span class="qty-num">1000</span><span class="qty-price" data-i18n="qty_price_1000">Ab CHF 3.90.–/Stk</span></button>
-                <button class="qty-btn" onclick="selectQty(this)"><span class="qty-num">5000</span><span class="qty-price" data-i18n="qty_price_5000">Ab CHF 2.90.–/Stk</span></button>
+                <button class="qty-btn" onclick="selectQty(this)"><span class="qty-num">500</span><span class="qty-price" data-i18n="qty_price_500">Ab CHF 3.45/Stk</span></button>
+                <button class="qty-btn" onclick="selectQty(this)"><span class="qty-num">1000</span><span class="qty-price" data-i18n="qty_price_1000">Ab CHF 3.20/Stk</span></button>
+                <button class="qty-btn" onclick="selectQty(this)"><span class="qty-num">3000</span><span class="qty-price" data-i18n="qty_price_3000">Ab CHF 2.70/Stk</span></button>
+                <button class="qty-btn" onclick="selectQty(this)"><span class="qty-num">5000</span><span class="qty-price" data-i18n="qty_price_5000">Ab CHF 2.50/Stk</span></button>
+              </div>
+              <div class="qty-custom-row">
                 <div class="qty-btn qty-custom" id="qty-custom-wrap" onclick="this.querySelector('input').focus()">
                   <span class="qty-num"><input type="number" id="qty-custom-input" data-i18n-ph="cfg_qty_custom_ph" placeholder="Eigene Stückzahl" min="1" onfocus="selectCustomQty()" oninput="selectCustomQty()" /></span>
                   <span class="qty-price" data-i18n="cfg_qty_price_req">Preis auf Anfrage</span>

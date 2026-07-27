@@ -186,6 +186,7 @@
 .qty-btn {
   padding: 11px 14px; border: 1px solid #c8c8c8; border-radius: 12px;
   background: #fff; cursor: pointer; text-align: left; transition: border-color .15s;
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
 }
 .qty-btn:hover { border-color: var(--red); }
 .qty-btn.active { border-color: var(--red); border-width: 2px; }
@@ -194,8 +195,9 @@
 .qty-custom input::placeholder { color: #aaa; font-weight: 300; }
 .qty-custom input::-webkit-inner-spin-button,
 .qty-custom input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
-.qty-num { font-size: 0.97rem; font-weight: 500; display: block; color: #111; margin-bottom: 3px; }
-.qty-price { font-size: 0.76rem; color: #888; font-weight: 300; }
+.qty-num { font-size: 0.97rem; font-weight: 500; color: #111; }
+.qty-price { font-size: 0.76rem; color: #888; font-weight: 300; white-space: nowrap; }
+.qty-custom-row { margin-top: 0; }
 .off-dots { display: flex; justify-content: center; gap: 6px; margin: 12px 0 18px; }
 .off-dot { width: 7px; height: 7px; border-radius: 50%; background: #ccc; border: none; padding: 0; cursor: pointer; transition: background .2s; }
 .off-dot.active { background: #333; }
