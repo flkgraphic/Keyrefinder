@@ -48,8 +48,7 @@ function selectModel(idx) {
 }
 
 function selectQty(btn) {
-  btn.closest('.qty-grid').querySelectorAll('.qty-btn')
-    .forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.qty-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById('offerte-error').classList.remove('visible');
 }
