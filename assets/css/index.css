@@ -197,8 +197,8 @@
 .qty-custom input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
 .qty-num { font-size: 0.97rem; font-weight: 500; color: #111; }
 .qty-price { font-size: 0.76rem; color: #888; font-weight: 300; white-space: nowrap; }
-.qty-custom-row { margin-top: 0; }
-.off-dots { display: flex; justify-content: center; gap: 6px; margin: 12px 0 18px; }
+.qty-custom-row { margin-top: 10px; }
+.off-dots { display: flex; justify-content: center; gap: 6px; margin: 8px 0 12px; }
 .off-dot { width: 7px; height: 7px; border-radius: 50%; background: #ccc; border: none; padding: 0; cursor: pointer; transition: background .2s; }
 .off-dot.active { background: #333; }
 .btn-weiter {

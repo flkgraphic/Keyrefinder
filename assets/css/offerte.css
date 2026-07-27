@@ -71,7 +71,7 @@
 .qty-btn.active { border-color: var(--red); border-width: 2px; }
 .qty-num { font-size: 0.97rem; font-weight: 500; color: #111; }
 .qty-price { font-size: 0.76rem; color: #888; font-weight: 300; white-space: nowrap; }
-.qty-custom-row { margin-top: 0; }
+.qty-custom-row { margin-top: 10px; }
 .qty-custom { cursor: text; }
 .qty-custom input { border: none; outline: none; background: transparent; font-family: 'Inter', Arial, sans-serif; font-size: 0.97rem; font-weight: 500; color: #111; width: 100%; padding: 0; }
 .qty-custom input::placeholder { color: #aaa; font-weight: 300; }
