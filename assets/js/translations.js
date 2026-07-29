@@ -701,10 +701,10 @@ window.TRANSLATIONS = {
     system_title:   '2 façons dont une clé avec KeyRefinder®<br>retrouve son propriétaire :',
     system_way_a:   'Par la poste',
     system_way_b:   'Contact direct',
-    system_a1:      'Le trouveur dépose la clé sans emballage dans la prochaine <strong>boîte aux lettres</strong>.',
+    system_a1:      'La personne qui trouve la clé la dépose sans emballage dans la <strong>boîte aux lettres</strong> la plus proche.',
     system_a2:      'lost.ch identifie le propriétaire enregistré et lui <strong>renvoie</strong> sa clé dans une <strong>enveloppe neutre</strong>.',
-    system_b1:      'Le trouveur signale la trouvaille directement via le <strong>site web</strong>.',
-    system_b2:      'Le propriétaire prend contact avec le trouveur et convient de la <strong>remise</strong>.',
+    system_b1:      'La personne qui a trouvé la clé annonce la trouvaille directement sur le <strong>site web</strong>.',
+    system_b2:      'Le propriétaire prend contact avec la personne qui a trouvé la clé pour organiser la <strong>remise</strong>.',
     video_title:    'Comment fonctionne KeyRefinder®',
 
     /* ── ueber-uns.html ── */
