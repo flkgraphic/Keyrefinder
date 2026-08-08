@@ -4,8 +4,11 @@ Disallow: /assets/
 
 Sitemap: https://keyrefinder.ch/sitemap.xml
 
-# AI Crawlers — erlaubt für AI-Sichtbarkeit
+# AI Crawlers — explizit erlaubt
 User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
 Allow: /
 
 User-agent: ClaudeBot
@@ -15,4 +18,7 @@ User-agent: PerplexityBot
 Allow: /
 
 User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
 Allow: /

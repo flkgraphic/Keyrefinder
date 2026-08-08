@@ -74,16 +74,17 @@ Antwort: Nichts Persönliches. Nur die ID-Nummer, die nur keyrefinder.ch entschl
 
 ## Preise (B2B, ab Stückzahl)
 
-- Ab 500 Stk: ab CHF 4.90.–/Stk
-- Ab 1000 Stk: ab CHF 3.90.–/Stk
-- Ab 5000 Stk: ab CHF 2.90.–/Stk
+- Ab 500 Stk: ab CHF 3.45/Stk
+- Ab 1000 Stk: ab CHF 3.20/Stk
+- Ab 3000 Stk: ab CHF 2.70/Stk
+- Ab 5000 Stk: ab CHF 2.50/Stk
 - Eigene Stückzahl: Preis auf Anfrage
 
 ---
 
 ## Kontakt & Offerte
 
-Offerte-Anfrage: https://keyrefinder.ch/offerte.html
+Offerte-Anfrage: https://keyrefinder.ch/offerte/
 Kontakt: info@keyrefinder.ch
 Betreiber: The Key Company GmbH, Schweiz
 

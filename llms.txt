@@ -13,9 +13,9 @@
 - [Schlüssel verloren](/de/schluessel-verloren/): Checkliste und Hilfe bei Schlüsselverlust
 - [Materialien](/de/materialien/): Edelstahl-Qualität, Oberflächen und Branding-Optionen
 - [Datenschutz & Anonymität](/de/datenschutz-anonym/): Wie das System 100% Anonymität gewährleistet
-- [System](https://keyrefinder.ch/system.html): Wie der KeyRefinder-Service funktioniert
-- [Über uns](https://keyrefinder.ch/ueber-uns.html): Über The Key Company GmbH
-- [Offerte anfragen](https://keyrefinder.ch/offerte.html): B2B Anfrage-Formular
+- [System](https://keyrefinder.ch/system/): Wie der KeyRefinder-Service funktioniert
+- [Über uns](https://keyrefinder.ch/ueber-uns/): Über The Key Company GmbH
+- [Offerte anfragen](https://keyrefinder.ch/offerte/): B2B Anfrage-Formular
 
 ## Pages (Français)
 - [FAQ](/fr/faq/): Questions fréquentes sur le service KeyRefinder
