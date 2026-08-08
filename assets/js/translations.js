@@ -16,7 +16,8 @@ window.TRANSLATIONS = {
     nav_referenzen:    'Referenzen',
     nav_system:        'System',
     nav_ueber_uns:     'Über uns',
-    nav_privatkunden:  'Privatkunden',
+    nav_privatkunden:      'Privatkunden',
+    nav_privatkunden_href: 'https://www.lost.ch/de',
     nav_btn_offerte:   'Offerte anfragen',
 
     /* Footer nav */
@@ -261,7 +262,8 @@ window.TRANSLATIONS = {
     nav_referenzen:    'Referenze',
     nav_system:        'Sistema',
     nav_ueber_uns:     'Chi siamo',
-    nav_privatkunden:  'Clienti privati',
+    nav_privatkunden:      'Clienti privati',
+    nav_privatkunden_href: 'https://www.lost.ch/it',
     nav_btn_offerte:   'Richiedere un\'offerta',
 
     /* Footer nav */
@@ -506,7 +508,8 @@ window.TRANSLATIONS = {
     nav_referenzen:    'Références',
     nav_system:        'Système',
     nav_ueber_uns:     'À propos',
-    nav_privatkunden:  'Clients privés',
+    nav_privatkunden:      'Clients privés',
+    nav_privatkunden_href: 'https://www.lost.ch/fr',
     nav_btn_offerte:   'Demander une offre',
 
     /* Footer nav */
@@ -751,7 +754,8 @@ window.TRANSLATIONS = {
     nav_referenzen:    'References',
     nav_system:        'System',
     nav_ueber_uns:     'About us',
-    nav_privatkunden:  'Private customers',
+    nav_privatkunden:      'Private customers',
+    nav_privatkunden_href: 'https://www.lost.ch/en',
     nav_btn_offerte:   'Request a quote',
 
     /* Footer nav */
