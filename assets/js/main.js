@@ -40,16 +40,3 @@ const urlLang = (window.location.pathname.match(/\/(de|fr|en|it)\//) || [])[1];
 const pageLang = urlLang ? urlLang.toUpperCase() : (localStorage.getItem('krf_lang') || 'DE');
 setLang(pageLang);
 
-// Anchor links — scroll without showing # in URL
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
-      const id = link.getAttribute('href').slice(1);
-      const target = document.getElementById(id);
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
-      history.replaceState(null, '', location.pathname);
-    });
-  });
-});

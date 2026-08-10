@@ -72,23 +72,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100,0,0" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/css/main.css" />
-  <link rel="stylesheet" href="../../assets/css/cluster.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/cluster.css" />
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V4BTCWEPFY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V4BTCWEPFY');
+  </script>
 </head>
 <body>
 
 <header>
-  <a href="../../index.html" class="logo">
-    <img src="../../assets/images/logo.png" alt="KeyRefinder® Business Clients" />
+  <a href="/" class="logo">
+    <img src="/assets/images/logo.png" alt="KeyRefinder® Business Clients" />
   </a>
   <nav id="desktop-nav">
-    <a href="../../index.html">Home</a>
-    <a href="../../index.html#produkte">Prodotti</a>
-    <a href="../../index.html#offerte">Preventivo</a>
-    <a href="../../system.html">Sistema</a>
-    <a href="../../ueber-uns.html">Chi siamo</a>
+    <a href="/">Home</a>
+    <a href="/#produkte">Prodotti</a>
+    <a href="/#offerte">Preventivo</a>
+    <a href="/system/">Sistema</a>
+    <a href="/ueber-uns/">Chi siamo</a>
     <a href="https://www.lost.ch/" target="_blank" rel="noopener">Clienti privati</a>
-    <a href="../../offerte.html" class="btn-offerte">Richiedere un preventivo</a>
+    <a href="/offerte/" class="btn-offerte">Richiedere un preventivo</a>
     <div class="lang-dropdown" id="lang-dropdown">
       <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">
         <span id="lang-current">IT</span>
@@ -108,20 +116,20 @@
 </header>
 
 <div class="mobile-nav" id="mobile-nav">
-  <a href="../../index.html" onclick="closeMenu()">Home</a>
-  <a href="../../index.html#produkte" onclick="closeMenu()">Prodotti</a>
-  <a href="../../index.html#offerte" onclick="closeMenu()">Preventivo</a>
-  <a href="../../system.html" onclick="closeMenu()">Sistema</a>
-  <a href="../../ueber-uns.html" onclick="closeMenu()">Chi siamo</a>
+  <a href="/" onclick="closeMenu()">Home</a>
+  <a href="/#produkte" onclick="closeMenu()">Prodotti</a>
+  <a href="/#offerte" onclick="closeMenu()">Preventivo</a>
+  <a href="/system/" onclick="closeMenu()">Sistema</a>
+  <a href="/ueber-uns/" onclick="closeMenu()">Chi siamo</a>
   <a href="https://www.lost.ch/" target="_blank" rel="noopener" onclick="closeMenu()">Clienti privati</a>
-  <a href="../../offerte.html" class="btn-offerte" onclick="closeMenu()">Richiedere un preventivo</a>
+  <a href="/offerte/" class="btn-offerte" onclick="closeMenu()">Richiedere un preventivo</a>
 </div>
 
 <main>
   <div class="cluster-wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <ol class="breadcrumb__list">
-        <li class="breadcrumb__item"><a class="breadcrumb__link" href="../../index.html">Home</a></li>
+        <li class="breadcrumb__item"><a class="breadcrumb__link" href="/">Home</a></li>
         <li class="breadcrumb__item">Chiave persa</li>
       </ol>
     </nav>
@@ -141,7 +149,7 @@
       <p>Spesso le chiavi si trovano ancora in un luogo visitato di recente. Ripercorrete mentalmente i vostri ultimi spostamenti. Eravate al ristorante, in treno o al lavoro? Chiamate in quei luoghi e informatevi.</p>
 
       <h3>2. C'è un KeyRefinder nel mazzo di chiavi?</h3>
-      <p>Se il vostro mazzo di chiavi è equipaggiato con un KeyRefinder® o KeyShopper®, le vostre possibilità sono eccellenti! Molti trovatori onesti usano il sistema. Il trovatore può semplicemente gettare le chiavi in una cassetta postale o contattarci attraverso il sistema. Aspettate 1-2 giorni – in molti casi vi contatteremo presto con la buona notizia. Come funziona esattamente: <a href="../../system.html">Come funziona il sistema KeyRefinder</a>.</p>
+      <p>Se il vostro mazzo di chiavi è equipaggiato con un KeyRefinder® o KeyShopper®, le vostre possibilità sono eccellenti! Molti trovatori onesti usano il sistema. Il trovatore può semplicemente gettare le chiavi in una cassetta postale o contattarci attraverso il sistema. Aspettate 1-2 giorni – in molti casi vi contatteremo presto con la buona notizia. Come funziona esattamente: <a href="/system/">Come funziona il sistema KeyRefinder</a>.</p>
 
       <h3>3. Contattare gli uffici oggetti smarriti e la polizia</h3>
       <p>Non avete un KeyRefinder? Allora contattate gli uffici oggetti smarriti del vostro comune o città. Se avete perso le chiavi su un treno FFS o in stazione, consultate la banca dati elettronica degli oggetti smarriti delle FFS (EasyFind). Anche un'informazione presso il posto di polizia locale può valere la pena. Per i trovatori abbiamo una guida separata: <a href="../chiave-trovata/">Chiave trovata – cosa fare?</a></p>
@@ -172,7 +180,7 @@
       <div class="cta-block">
         <p class="cta-block__title">KeyRefinder® per la vostra azienda</p>
         <p>Proteggete i vostri clienti con il sistema di ritrovamento chiavi più affidabile della Svizzera.</p>
-        <a href="../../offerte.html" class="cta-block__btn">Richiedere un preventivo</a>
+        <a href="/offerte/" class="cta-block__btn">Richiedere un preventivo</a>
       </div>
 
       <aside class="related-links">
@@ -191,17 +199,17 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
-      <img src="../../assets/images/logo.png" alt="KeyRefinder® Business Clients" />
+      <img src="/assets/images/logo.png" alt="KeyRefinder® Business Clients" />
       <div class="footer-copy">© 2025 The Key Company GmbH</div>
     </div>
     <nav class="footer-nav">
-      <a href="../../ueber-uns.html">Chi siamo</a>
+      <a href="/ueber-uns/">Chi siamo</a>
       <a href="../faq/">FAQ</a>
     </nav>
   </div>
 </footer>
 
-<script src="../../assets/js/translations.js" defer></script>
-<script src="../../assets/js/main.js" defer></script>
+<script src="/assets/js/translations.js" defer></script>
+<script src="/assets/js/main.js" defer></script>
 </body>
 </html>

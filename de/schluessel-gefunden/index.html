@@ -85,23 +85,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100,0,0" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/css/main.css" />
-  <link rel="stylesheet" href="../../assets/css/cluster.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/cluster.css" />
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V4BTCWEPFY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V4BTCWEPFY');
+  </script>
 </head>
 <body>
 
 <header>
-  <a href="../../index.html" class="logo">
-    <img src="../../assets/images/logo.png" alt="KeyRefinder® Business Clients" />
+  <a href="/" class="logo">
+    <img src="/assets/images/logo.png" alt="KeyRefinder® Business Clients" />
   </a>
   <nav id="desktop-nav">
-    <a href="../../index.html">Home</a>
-    <a href="../../index.html#produkte">Produkte</a>
-    <a href="../../index.html#offerte">Offerte</a>
-    <a href="../../system.html">System</a>
-    <a href="../../ueber-uns.html">Über uns</a>
+    <a href="/">Home</a>
+    <a href="/#produkte">Produkte</a>
+    <a href="/#offerte">Offerte</a>
+    <a href="/system/">System</a>
+    <a href="/ueber-uns/">Über uns</a>
     <a href="https://www.lost.ch/" target="_blank" rel="noopener">Privatkunden</a>
-    <a href="../../offerte.html" class="btn-offerte">Offerte anfragen</a>
+    <a href="/offerte/" class="btn-offerte">Offerte anfragen</a>
     <div class="lang-dropdown" id="lang-dropdown">
       <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">
         <span id="lang-current">DE</span>
@@ -121,20 +129,20 @@
 </header>
 
 <div class="mobile-nav" id="mobile-nav">
-  <a href="../../index.html" onclick="closeMenu()">Home</a>
-  <a href="../../index.html#produkte" onclick="closeMenu()">Produkte</a>
-  <a href="../../index.html#offerte" onclick="closeMenu()">Offerte</a>
-  <a href="../../system.html" onclick="closeMenu()">System</a>
-  <a href="../../ueber-uns.html" onclick="closeMenu()">Über uns</a>
+  <a href="/" onclick="closeMenu()">Home</a>
+  <a href="/#produkte" onclick="closeMenu()">Produkte</a>
+  <a href="/#offerte" onclick="closeMenu()">Offerte</a>
+  <a href="/system/" onclick="closeMenu()">System</a>
+  <a href="/ueber-uns/" onclick="closeMenu()">Über uns</a>
   <a href="https://www.lost.ch/" target="_blank" rel="noopener" onclick="closeMenu()">Privatkunden</a>
-  <a href="../../offerte.html" class="btn-offerte" onclick="closeMenu()">Offerte anfragen</a>
+  <a href="/offerte/" class="btn-offerte" onclick="closeMenu()">Offerte anfragen</a>
 </div>
 
 <main>
   <div class="cluster-wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <ol class="breadcrumb__list">
-        <li class="breadcrumb__item"><a class="breadcrumb__link" href="../../index.html">Home</a></li>
+        <li class="breadcrumb__item"><a class="breadcrumb__link" href="/">Home</a></li>
         <li class="breadcrumb__item">Schlüssel gefunden</li>
       </ol>
     </nav>
@@ -188,7 +196,7 @@
       <div class="cta-block">
         <p class="cta-block__title">KeyRefinder® für Ihr Unternehmen</p>
         <p>Schützen Sie Ihre Kunden mit dem bewährtesten Schlüsselfundsystem der Schweiz. Jetzt unverbindliche Offerte anfragen.</p>
-        <a href="../../offerte.html" class="cta-block__btn">Jetzt Offerte anfragen</a>
+        <a href="/offerte/" class="cta-block__btn">Jetzt Offerte anfragen</a>
       </div>
 
       <aside class="related-links">
@@ -206,17 +214,17 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
-      <img src="../../assets/images/logo.png" alt="KeyRefinder® Business Clients" />
+      <img src="/assets/images/logo.png" alt="KeyRefinder® Business Clients" />
       <div class="footer-copy">© 2025 The Key Company GmbH</div>
     </div>
     <nav class="footer-nav">
-      <a href="../../ueber-uns.html">Über uns</a>
+      <a href="/ueber-uns/">Über uns</a>
       <a href="../faq/">FAQ</a>
     </nav>
   </div>
 </footer>
 
-<script src="../../assets/js/translations.js" defer></script>
-<script src="../../assets/js/main.js" defer></script>
+<script src="/assets/js/translations.js" defer></script>
+<script src="/assets/js/main.js" defer></script>
 </body>
 </html>

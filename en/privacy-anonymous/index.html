@@ -27,8 +27,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100,0,0" rel="stylesheet" />
 
-  <link rel="stylesheet" href="../../assets/css/main.css" />
-  <link rel="stylesheet" href="../../assets/css/cluster.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/cluster.css" />
 
   <script type="application/ld+json">
   [
@@ -105,21 +105,29 @@
     }
   ]
   </script>
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V4BTCWEPFY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V4BTCWEPFY');
+  </script>
 </head>
 <body>
 
 <header>
-  <a href="../../index.html" class="logo">
-    <img src="../../assets/images/logo.png" alt="KeyRefinder® Business Clients" />
+  <a href="/" class="logo">
+    <img src="/assets/images/logo.png" alt="KeyRefinder® Business Clients" />
   </a>
   <nav id="desktop-nav">
-    <a href="../../index.html">Home</a>
-    <a href="../../index.html#produkte">Products</a>
-    <a href="../../index.html#offerte">Quote</a>
-    <a href="../../system.html">System</a>
-    <a href="../../ueber-uns.html">About us</a>
+    <a href="/">Home</a>
+    <a href="/#produkte">Products</a>
+    <a href="/#offerte">Quote</a>
+    <a href="/system/">System</a>
+    <a href="/ueber-uns/">About us</a>
     <a href="https://www.lost.ch/" target="_blank" rel="noopener">Private customers</a>
-    <a href="../../offerte.html" class="btn-offerte">Request a quote</a>
+    <a href="/offerte/" class="btn-offerte">Request a quote</a>
     <div class="lang-dropdown" id="lang-dropdown">
       <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">
         <span id="lang-current">EN</span>
@@ -139,19 +147,19 @@
 </header>
 
 <div class="mobile-nav" id="mobile-nav">
-  <a href="../../index.html" onclick="closeMenu()">Home</a>
-  <a href="../../index.html#produkte" onclick="closeMenu()">Products</a>
-  <a href="../../index.html#offerte" onclick="closeMenu()">Quote</a>
-  <a href="../../system.html" onclick="closeMenu()">System</a>
-  <a href="../../ueber-uns.html" onclick="closeMenu()">About us</a>
+  <a href="/" onclick="closeMenu()">Home</a>
+  <a href="/#produkte" onclick="closeMenu()">Products</a>
+  <a href="/#offerte" onclick="closeMenu()">Quote</a>
+  <a href="/system/" onclick="closeMenu()">System</a>
+  <a href="/ueber-uns/" onclick="closeMenu()">About us</a>
   <a href="https://www.lost.ch/" target="_blank" rel="noopener" onclick="closeMenu()">Private customers</a>
-  <a href="../../offerte.html" class="btn-offerte" onclick="closeMenu()">Request a quote</a>
+  <a href="/offerte/" class="btn-offerte" onclick="closeMenu()">Request a quote</a>
 </div>
 
 <main>
   <div class="cluster-wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../../index.html">Home</a>
+      <a href="/">Home</a>
       <span aria-hidden="true"> › </span>
       <span aria-current="page">Privacy &amp; Anonymity</span>
     </nav>
@@ -201,7 +209,7 @@
       <section class="cluster-cta">
         <h2>KeyRefinder® for your business</h2>
         <p>Give your customers a corporate gift with real value — and maximum security.</p>
-        <a href="../../offerte.html" class="btn-offerte">Request a quote</a>
+        <a href="/offerte/" class="btn-offerte">Request a quote</a>
       </section>
 
       <nav class="cluster-related" aria-label="Related pages">
@@ -220,17 +228,17 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
-      <img src="../../assets/images/logo.png" alt="KeyRefinder® Business Clients" />
+      <img src="/assets/images/logo.png" alt="KeyRefinder® Business Clients" />
       <div class="footer-copy">© 2025 The Key Company GmbH</div>
     </div>
     <nav class="footer-nav">
-      <a href="../../ueber-uns.html">About us</a>
+      <a href="/ueber-uns/">About us</a>
       <a href="../faq/">FAQ</a>
     </nav>
   </div>
 </footer>
 
-<script src="../../assets/js/translations.js" defer></script>
-<script src="../../assets/js/main.js" defer></script>
+<script src="/assets/js/translations.js" defer></script>
+<script src="/assets/js/main.js" defer></script>
 </body>
 </html>
