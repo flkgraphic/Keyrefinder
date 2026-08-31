@@ -4,13 +4,13 @@
     {
       "name": "Live Server (npx serve)",
       "runtimeExecutable": "/usr/bin/python3",
-      "runtimeArgs": ["-m", "http.server", "3000"],
+      "runtimeArgs": ["-m", "http.server", "3000", "-d", "/Users/florianklein/Documents/Cloude/Keyrefinder"],
       "port": 3000
     },
     {
       "name": "Python HTTP Server",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8080"],
+      "runtimeExecutable": "/usr/local/bin/npx",
+      "runtimeArgs": ["serve", "-l", "8080", "/Users/florianklein/Documents/Cloude/Keyrefinder"],
       "port": 8080
     }
   ]
