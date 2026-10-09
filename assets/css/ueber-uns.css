@@ -33,10 +33,15 @@ body { overflow-x: hidden; }
 .team-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
 .team-avatar {
   width: 64px; height: 64px; border-radius: 50%;
-  background: var(--dark); display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem; font-weight: 100; color: #fff;
+  background: #FADDDB; display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; font-weight: 400; color: #8E2B28;
   margin-bottom: 20px; letter-spacing: 0.05em;
 }
+/* Pastelltöne pro Teammitglied — Textfarbe jeweils min. 5.6:1 Kontrast */
+.team-card:nth-child(2) .team-avatar { background: #FBE4D0; color: #7D4614; }
+.team-card:nth-child(3) .team-avatar { background: #F5EDC6; color: #6B5C0F; }
+.team-card:nth-child(4) .team-avatar { background: #DCEBE0; color: #255C39; }
+.team-card:nth-child(5) .team-avatar { background: #DFE5F6; color: #32438B; }
 .team-name { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
 .team-role { font-size: 0.82rem; font-weight: 300; color: #888; letter-spacing: 0.04em; }
 
